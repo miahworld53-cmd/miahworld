@@ -25,23 +25,27 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
-/* Professional travel-agency hero image */
+/* Professional travel-agency hero */
 #home {
   position: relative;
   overflow: hidden;
+  min-height: 560px;
   background-image:
-    linear-gradient(90deg, rgba(7, 43, 145, 0.92) 0%, rgba(14, 91, 219, 0.78) 45%, rgba(0, 174, 207, 0.55) 100%),
-    url("https://images.unsplash.com/photo-1706182560512-a607687c2c85?auto=format&fit=crop&w=2200&q=85") !important;
+    linear-gradient(90deg, rgba(7, 43, 145, 0.90) 0%, rgba(14, 91, 219, 0.72) 45%, rgba(0, 174, 207, 0.50) 100%),
+    url("https://images.unsplash.com/photo-1706182560512-a607687c2c85?auto=format&fit=crop&w=2200&q=85");
   background-size: cover;
   background-position: center;
 }
 
 #home > div {
   position: relative;
-  z-index: 1;
+  z-index: 2;
+  min-height: 560px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
-/* Subtle premium highlight */
 #home::after {
   content: "";
   position: absolute;
@@ -54,4 +58,12 @@ body {
   background: rgba(255, 255, 255, 0.08);
   filter: blur(8px);
   pointer-events: none;
+  z-index: 1;
+}
+
+@media (max-width: 768px) {
+  #home,
+  #home > div {
+    min-height: 620px;
+  }
 }
