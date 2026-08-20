@@ -77,6 +77,7 @@ export default function Home() {
       duration: "Full Day",
       highlights: "Penang Hill, Funicular Railway, Panoramic Views",
       gradient: "from-indigo-600 to-violet-500",
+      image: "https://fasttur.ru/assets/images/illustration2/funicular_penang.jpg",
     },
     {
       category: "City Tour",
@@ -85,6 +86,7 @@ export default function Home() {
       duration: "Half Day / Full Day",
       highlights: "Putra Mosque, Putrajaya Lake, Government Buildings",
       gradient: "from-cyan-600 to-teal-500",
+      image: "https://res.cloudinary.com/dk0ndttcl/image/upload/q_auto%3Aeco/v1/stw/rs0rrf9jro6qmzqg1gu6",
     },
   ];
 
@@ -146,10 +148,26 @@ export default function Home() {
           <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {tourCards.map((tour) => (
               <div key={tour.title} className="overflow-hidden rounded-2xl bg-white shadow-lg">
-                <div className={`bg-gradient-to-r ${tour.gradient} px-6 py-10 text-white`}>
-                  <p className="text-sm font-bold uppercase tracking-widest">{tour.category}</p>
-                  <h3 className="mt-3 text-3xl font-extrabold">{tour.title}</h3>
-                </div>
+                {tour.image ? (
+                  <div className="relative h-56 overflow-hidden">
+                    <img
+                      src={tour.image}
+                      alt={`${tour.title} tour`}
+                      className="h-full w-full object-cover"
+                      loading="lazy"
+                    />
+                    <div className="absolute inset-0 bg-black/20" />
+                    <div className="absolute inset-x-0 bottom-0 p-6 text-white">
+                      <p className="text-sm font-bold uppercase tracking-widest">{tour.category}</p>
+                      <h3 className="mt-2 text-3xl font-extrabold drop-shadow">{tour.title}</h3>
+                    </div>
+                  </div>
+                ) : (
+                  <div className={`bg-gradient-to-r ${tour.gradient} px-6 py-10 text-white`}>
+                    <p className="text-sm font-bold uppercase tracking-widest">{tour.category}</p>
+                    <h3 className="mt-3 text-3xl font-extrabold">{tour.title}</h3>
+                  </div>
+                )}
                 <div className="p-6">
                   <p className="text-slate-600">{tour.description}</p>
                   <p className="mt-4 font-semibold text-slate-900">Private • Family • Group Tour</p>
