@@ -17,7 +17,7 @@ body { background:var(--background); color:var(--foreground); font-family:Arial,
 }
 #home > div:first-child {
   position:absolute !important; inset:0; z-index:0 !important; min-height:100% !important; display:block !important;
-  background-image:linear-gradient(90deg,rgba(7,43,145,.28) 0%,rgba(14,91,219,.16) 48%,rgba(0,174,207,.10) 100%),url("https://media.triple.guide/triple-cms/c_limit%2Cf_auto%2Ch_1024%2Cw_1024/f806fc36-44cb-4f27-a4a2-4d93e44b042e.jpeg") !important;
+  background-image:linear-gradient(90deg,rgba(7,43,145,.28) 0%,rgba(14,91,219,.16) 48%,rgba(0,174,207,.10) 100%),url("https://upload.wikimedia.org/wikipedia/commons/8/86/Malaysia_Airlines_Airbus_A330-323E_msn_1243_9M-MTE_%28F-WWYP%29.jpg") !important;
   background-size:cover !important; background-position:center !important;
 }
 #home > div:nth-child(2) {
@@ -26,11 +26,6 @@ body { background:var(--background); color:var(--foreground); font-family:Arial,
 }
 #home > div:nth-child(3) {
   position:relative !important; z-index:2 !important; min-height:560px; display:flex; flex-direction:column; justify-content:center;
-}
-#home::after {
-  content:"✈"; position:absolute; right:5%; top:34%; z-index:3; pointer-events:none;
-  color:rgba(255,255,255,.90); font-size:clamp(110px,15vw,230px); line-height:1;
-  transform:rotate(-8deg); text-shadow:0 8px 30px rgba(0,0,0,.20);
 }
 
 /* Professional service cards with responsive travel images */
@@ -63,7 +58,6 @@ body { background:var(--background); color:var(--foreground); font-family:Arial,
 
 @media (max-width:768px) {
   #home,#home > div:nth-child(3) { min-height:620px; }
-  #home::after { right:2%; top:18%; font-size:110px; opacity:.75; }
   #services .grid > div::before { height:155px; }
   #services .grid > div h3,#services .grid > div p { margin-left:20px; margin-right:20px; }
   #tours .grid > div::before { height:180px; }
