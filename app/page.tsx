@@ -43,8 +43,8 @@ export default function Home() {
 
       {/* CLEAN KLIA-FOCUSED HERO */}
       <section id="home" className="relative min-h-[620px] overflow-hidden bg-slate-900 md:min-h-[680px]">
-        <div className="absolute inset-0 bg-cover bg-center bg-[center_38%]" style={{ backgroundImage: "url(https://www.malaysiaairlines.com/content/dam/mh/my/en/experience/our-fleet/v2/a330neo/750x562_MastheadBanner-fleet-330neo.jpg)" }} />
-        <div className="absolute inset-0 bg-gradient-to-r from-slate-950/45 via-slate-950/15 to-transparent" />
+        <div className="absolute inset-0 bg-cover bg-center bg-[center_38%]" style={{ backgroundImage: "url(https://commons.wikimedia.org/wiki/Special:Redirect/file/Malaysia_Airlines_Airbus_A330-323_(35386426481).jpg?width=2200&v=3)" }} />
+        <div className="absolute inset-0 bg-gradient-to-r from-slate-950/65 via-slate-950/30 to-slate-950/5" />
         <div className="relative mx-auto flex min-h-[620px] max-w-7xl items-center px-6 py-24 text-white md:min-h-[680px] md:py-28">
           <div className="max-w-3xl">
             <p className="font-bold uppercase tracking-[0.25em] drop-shadow-md">FLYWITHMIA</p>
