@@ -30,10 +30,10 @@ export default function Home() {
   ];
 
   const visaCards = [
-    { icon: "🇹🇭", title: "Thailand Visa", label: "POPULAR", description: "Tourist visa assistance, document checking and application guidance for Thailand." },
-    { icon: "🇸🇬", title: "Singapore Visa", label: "POPULAR", description: "Professional support for Singapore tourist visa applications and document preparation." },
-    { icon: "🇨🇳", title: "China Visa", label: "TOURIST VISA", description: "Tourist visa support and document guidance for travellers visiting China." },
-    { icon: "🌏", title: "Other Visas", label: "WORLDWIDE", description: "Visa assistance for selected destinations worldwide. Ask our team about your destination." },
+    { icon: "🇹🇭", title: "Thailand Visa", label: "POPULAR", description: "Tourist visa assistance, document checking and application guidance for Thailand.", image: "https://images.pexels.com/photos/7010105/pexels-photo-7010105.jpeg?auto=compress&cs=tinysrgb&w=900" },
+    { icon: "🇸🇬", title: "Singapore Visa", label: "POPULAR", description: "Professional support for Singapore tourist visa applications and document preparation.", image: "https://images.pexels.com/photos/7310015/pexels-photo-7310015.jpeg?auto=compress&cs=tinysrgb&w=900" },
+    { icon: "🇨🇳", title: "China Visa", label: "TOURIST VISA", description: "Tourist visa support and document guidance for travellers visiting China.", image: "https://images.pexels.com/photos/6815940/pexels-photo-6815940.jpeg?auto=compress&cs=tinysrgb&w=900" },
+    { icon: "🌏", title: "Other Visas", label: "WORLDWIDE", description: "Visa assistance for selected destinations worldwide. Ask our team about your destination.", image: "https://images.pexels.com/photos/7009481/pexels-photo-7009481.jpeg?auto=compress&cs=tinysrgb&w=900" },
   ];
 
   return (
@@ -95,9 +95,11 @@ export default function Home() {
           <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
             {visaCards.map((visa) => (
               <div key={visa.title} className="group flex h-full flex-col rounded-3xl border border-slate-200 bg-white p-7 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-xl">
-                <div className="flex items-start justify-between">
-                  <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-blue-50 text-4xl shadow-inner">{visa.icon}</div>
-                  <span className="rounded-full bg-blue-50 px-3 py-1 text-[11px] font-extrabold tracking-wider text-blue-700">{visa.label}</span>
+                <div className="relative overflow-hidden rounded-2xl">
+                  <img src={visa.image} alt={`${visa.title} passport and visa travel document`} className="h-40 w-full object-cover" loading="lazy" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/35 via-transparent to-transparent" />
+                  <div className="absolute left-4 top-4 rounded-xl bg-white/90 px-3 py-2 text-2xl shadow-sm">{visa.icon}</div>
+                  <span className="absolute right-4 top-4 rounded-full bg-white/95 px-3 py-1 text-[11px] font-extrabold tracking-wider text-blue-700 shadow-sm">{visa.label}</span>
                 </div>
                 <h3 className="mt-6 text-2xl font-extrabold text-slate-900">{visa.title}</h3>
                 <p className="mt-3 flex-1 leading-7 text-slate-600">{visa.description}</p>
