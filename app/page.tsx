@@ -29,6 +29,13 @@ export default function Home() {
     { category: "City Tour", title: "Putrajaya", description: "Visit the Pink Mosque, Putrajaya Lake, beautiful bridges and Malaysia's impressive administrative city.", duration: "Half Day / Full Day", highlights: "Putra Mosque, Putrajaya Lake, Government Buildings", gradient: "from-cyan-600 to-teal-500", image: "https://res.cloudinary.com/dk0ndttcl/image/upload/q_auto%3Aeco/v1/stw/rs0rrf9jro6qmzqg1gu6" },
   ];
 
+  const visaCards = [
+    { icon: "🇹🇭", title: "Thailand Visa", label: "POPULAR", description: "Tourist visa assistance, document checking and application guidance for Thailand." },
+    { icon: "🇸🇬", title: "Singapore Visa", label: "POPULAR", description: "Professional support for Singapore tourist visa applications and document preparation." },
+    { icon: "🇨🇳", title: "China Visa", label: "TOURIST VISA", description: "Tourist visa support and document guidance for travellers visiting China." },
+    { icon: "🌏", title: "Other Visas", label: "WORLDWIDE", description: "Visa assistance for selected destinations worldwide. Ask our team about your destination." },
+  ];
+
   return (
     <main className="min-h-screen bg-white text-slate-900">
       <header className="sticky top-0 z-50 bg-white shadow-sm">
@@ -75,9 +82,47 @@ export default function Home() {
         <div className="mt-12 text-center"><p className="text-lg font-semibold text-slate-700">Looking for a customized tour?</p><a href="https://wa.me/60166256738?text=Assalamu%20Alaikum%2C%20I%20would%20like%20to%20plan%20a%20customized%20tour." target="_blank" rel="noopener noreferrer" className="mt-4 inline-block rounded-full bg-green-500 px-8 py-4 font-bold text-white shadow-lg hover:bg-green-600">📱 Plan My Tour on WhatsApp</a></div>
       </div></section>
 
-      <section id="visa" className="bg-white px-6 py-20"><div className="mx-auto max-w-7xl"><div className="text-center"><p className="font-bold uppercase tracking-widest text-blue-600">Visa Services</p><h2 className="mt-3 text-4xl font-extrabold text-slate-900 md:text-5xl">Visa Assistance</h2><p className="mx-auto mt-4 max-w-2xl text-lg text-slate-600">Get professional assistance with tourist visas, travel documents and visa applications.</p></div><div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
-        {[["🇨🇳","China Visa","Tourist visa assistance and document guidance for China."],["🇹🇭","Thailand Visa","Visa application support and document checking for Thailand."],["🇸🇬","Singapore Visa","Professional assistance for Singapore tourist visa applications."],["🌍","Other Visas","Travel visa assistance for selected destinations worldwide."]].map(([icon,title,description])=><div key={title} className="rounded-2xl border border-slate-200 bg-slate-50 p-6 shadow-sm"><div className="text-4xl">{icon}</div><h3 className="mt-4 text-xl font-bold text-slate-900">{title}</h3><p className="mt-3 text-slate-600">{description}</p><a href={`https://wa.me/60166256738?text=${encodeURIComponent(`Assalamu Alaikum, I would like to enquire about ${title}.`)}`} target="_blank" rel="noopener noreferrer" className="mt-5 inline-block rounded-full bg-blue-600 px-5 py-3 font-bold text-white hover:bg-blue-700">Enquire on WhatsApp</a></div>)}
-      </div><div className="mt-12 text-center"><a href="https://wa.me/60166256738?text=Assalamu%20Alaikum%2C%20I%20would%20like%20visa%20assistance." target="_blank" rel="noopener noreferrer" className="inline-block rounded-full bg-green-500 px-8 py-4 font-bold text-white shadow-lg hover:bg-green-600">💬 Need Visa Assistance? Contact Us</a></div></div></section>
+      {/* PREMIUM VISA SECTION */}
+      <section id="visa" className="relative overflow-hidden bg-slate-50 px-6 py-24">
+        <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-blue-700 via-cyan-500 to-blue-700" />
+        <div className="mx-auto max-w-7xl">
+          <div className="mx-auto max-w-3xl text-center">
+            <p className="font-bold uppercase tracking-[0.22em] text-blue-600">VISA SERVICES</p>
+            <h2 className="mt-3 text-4xl font-extrabold tracking-tight text-slate-900 md:text-5xl">Visa Assistance Made Simple</h2>
+            <p className="mx-auto mt-5 max-w-2xl text-lg leading-8 text-slate-600">Planning your next trip? Let MIAH WORLD help you with visa documentation, application guidance and document checking.</p>
+          </div>
+
+          <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+            {visaCards.map((visa) => (
+              <div key={visa.title} className="group flex h-full flex-col rounded-3xl border border-slate-200 bg-white p-7 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-xl">
+                <div className="flex items-start justify-between">
+                  <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-blue-50 text-4xl shadow-inner">{visa.icon}</div>
+                  <span className="rounded-full bg-blue-50 px-3 py-1 text-[11px] font-extrabold tracking-wider text-blue-700">{visa.label}</span>
+                </div>
+                <h3 className="mt-6 text-2xl font-extrabold text-slate-900">{visa.title}</h3>
+                <p className="mt-3 flex-1 leading-7 text-slate-600">{visa.description}</p>
+                <a href={`https://wa.me/60166256738?text=${encodeURIComponent(`Assalamu Alaikum, I would like to enquire about ${visa.title}.`)}`} target="_blank" rel="noopener noreferrer" className="mt-6 inline-flex items-center justify-center rounded-full bg-blue-600 px-5 py-3.5 font-bold text-white shadow-md transition hover:bg-blue-700">Enquire on WhatsApp <span className="ml-2">→</span></a>
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-10 rounded-3xl bg-white p-7 shadow-sm ring-1 ring-slate-200 md:p-9">
+            <div className="grid gap-8 md:grid-cols-3 md:items-center">
+              <div>
+                <p className="text-sm font-extrabold uppercase tracking-widest text-blue-600">OUR SUPPORT</p>
+                <h3 className="mt-2 text-2xl font-extrabold text-slate-900">What we can help with</h3>
+              </div>
+              <div className="space-y-3 text-slate-700"><p>✓ Document checking & guidance</p><p>✓ Application preparation support</p></div>
+              <div className="space-y-3 text-slate-700"><p>✓ Travel document assistance</p><p>✓ WhatsApp consultation</p></div>
+            </div>
+          </div>
+
+          <div className="mt-10 overflow-hidden rounded-3xl bg-gradient-to-r from-blue-700 to-cyan-600 p-8 text-white shadow-xl md:flex md:items-center md:justify-between md:px-10">
+            <div><p className="text-sm font-bold uppercase tracking-widest text-blue-100">NEED HELP WITH A VISA?</p><h3 className="mt-2 text-2xl font-extrabold md:text-3xl">Tell us your destination — we’ll guide you.</h3></div>
+            <a href="https://wa.me/60166256738?text=Assalamu%20Alaikum%2C%20I%20need%20visa%20assistance.%20Please%20guide%20me." target="_blank" rel="noopener noreferrer" className="mt-6 inline-flex rounded-full bg-white px-7 py-3.5 font-extrabold text-blue-700 shadow-lg hover:bg-slate-100 md:mt-0">Chat on WhatsApp</a>
+          </div>
+        </div>
+      </section>
 
       <section id="flights" className="bg-gradient-to-br from-blue-50 via-white to-cyan-50 px-6 py-20"><div className="mx-auto max-w-7xl"><div className="text-center"><p className="font-bold uppercase tracking-widest text-blue-600">FLIGHT BOOKING</p><h2 className="mt-3 text-4xl font-extrabold text-slate-900 md:text-5xl">Find Your Next Flight</h2><p className="mx-auto mt-5 max-w-2xl text-lg text-slate-600">Domestic and international flight tickets with competitive fares and professional booking assistance.</p></div>
         <div className="mx-auto mt-12 max-w-5xl rounded-3xl bg-white p-6 shadow-xl ring-1 ring-slate-200 md:p-10"><div className="mb-8 flex flex-wrap gap-6"><label className="flex items-center gap-2 font-semibold text-slate-800"><input type="radio" name="trip" defaultChecked className="h-4 w-4" />Round Trip</label><label className="flex items-center gap-2 font-semibold text-slate-800"><input type="radio" name="trip" className="h-4 w-4" />One Way</label></div><div className="grid gap-5 md:grid-cols-2 lg:grid-cols-4"><div><label className="mb-2 block text-sm font-bold text-slate-700">From</label><input id="flight-from" type="text" placeholder="Kuala Lumpur (KUL)" className="w-full rounded-xl border border-slate-300 px-4 py-4 outline-none" /></div><div><label className="mb-2 block text-sm font-bold text-slate-700">To</label><input id="flight-to" type="text" placeholder="Dhaka (DAC)" className="w-full rounded-xl border border-slate-300 px-4 py-4 outline-none" /></div><div><label className="mb-2 block text-sm font-bold text-slate-700">Departure</label><input id="flight-date" type="date" className="w-full rounded-xl border border-slate-300 px-4 py-4 outline-none" /></div><div><label className="mb-2 block text-sm font-bold text-slate-700">Passengers</label><select id="flight-passengers" className="w-full rounded-xl border border-slate-300 px-4 py-4 outline-none" defaultValue="1">{Array.from({ length: 9 }, (_, i) => <option key={i + 1} value={i + 1}>{i + 1} Passenger{i ? "s" : ""}</option>)}</select></div></div><div className="mt-8 flex flex-col items-center justify-between gap-5 border-t border-slate-200 pt-8 md:flex-row"><div><h3 className="text-xl font-bold text-slate-900">Need a better fare?</h3><p className="mt-1 text-slate-600">Send us your travel details and our team will assist you.</p></div><button type="button" onClick={sendFlightEnquiry} className="inline-flex rounded-full bg-blue-600 px-8 py-4 font-bold text-white">Search & Enquire</button></div></div>
