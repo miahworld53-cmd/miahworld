@@ -1,0 +1,64 @@
+name: Add passport and visa images
+
+on:
+  push:
+    branches: [master]
+
+permissions:
+  contents: write
+
+jobs:
+  update-visa-cards:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Add visa card images
+        shell: python
+        run: |
+          from pathlib import Path
+
+          path = Path('app/page.tsx')
+          text = path.read_text(encoding='utf-8')
+
+          if 'image: "https://images.pexels.com/photos/7010105/' in text:
+              print('Visa images already added')
+              raise SystemExit(0)
+
+          replacements = {
+              '{ icon: "🇹🇭", title: "Thailand Visa", label: "POPULAR", description: "Tourist visa assistance, document checking and application guidance for Thailand." }':
+              '{ icon: "🇹🇭", title: "Thailand Visa", label: "POPULAR", description: "Tourist visa assistance, document checking and application guidance for Thailand.", image: "https://images.pexels.com/photos/7010105/pexels-photo-7010105.jpeg?auto=compress&cs=tinysrgb&w=900" }',
+              '{ icon: "🇸🇬", title: "Singapore Visa", label: "POPULAR", description: "Professional support for Singapore tourist visa applications and document preparation." }':
+              '{ icon: "🇸🇬", title: "Singapore Visa", label: "POPULAR", description: "Professional support for Singapore tourist visa applications and document preparation.", image: "https://images.pexels.com/photos/7310015/pexels-photo-7310015.jpeg?auto=compress&cs=tinysrgb&w=900" }',
+              '{ icon: "🇨🇳", title: "China Visa", label: "TOURIST VISA", description: "Tourist visa support and document guidance for travellers visiting China." }':
+              '{ icon: "🇨🇳", title: "China Visa", label: "TOURIST VISA", description: "Tourist visa support and document guidance for travellers visiting China.", image: "https://images.pexels.com/photos/6815940/pexels-photo-6815940.jpeg?auto=compress&cs=tinysrgb&w=900" }',
+              '{ icon: "🌏", title: "Other Visas", label: "WORLDWIDE", description: "Visa assistance for selected destinations worldwide. Ask our team about your destination." }':
+              '{ icon: "🌏", title: "Other Visas", label: "WORLDWIDE", description: "Visa assistance for selected destinations worldwide. Ask our team about your destination.", image: "https://images.pexels.com/photos/7009481/pexels-photo-7009481.jpeg?auto=compress&cs=tinysrgb&w=900" }',
+          }
+
+          for old, new in replacements.items():
+              if old not in text:
+                  raise SystemExit(f'Missing expected visa card: {old}')
+              text = text.replace(old, new, 1)
+
+          old_block = '''                <div className="flex items-start justify-between">\n                  <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-blue-50 text-4xl shadow-inner">{visa.icon}</div>\n                  <span className="rounded-full bg-blue-50 px-3 py-1 text-[11px] font-extrabold tracking-wider text-blue-700">{visa.label}</span>\n                </div>'''
+          new_block = '''                <div className="relative overflow-hidden rounded-2xl">\n                  <img src={visa.image} alt={`${visa.title} passport and visa travel document`} className="h-40 w-full object-cover" loading="lazy" />\n                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/35 via-transparent to-transparent" />\n                  <div className="absolute left-4 top-4 rounded-xl bg-white/90 px-3 py-2 text-2xl shadow-sm">{visa.icon}</div>\n                  <span className="absolute right-4 top-4 rounded-full bg-white/95 px-3 py-1 text-[11px] font-extrabold tracking-wider text-blue-700 shadow-sm">{visa.label}</span>\n                </div>'''
+
+          if old_block not in text:
+              raise SystemExit('Visa card image block target not found')
+          text = text.replace(old_block, new_block, 1)
+          path.write_text(text, encoding='utf-8')
+
+      - name: Commit website update
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add app/page.tsx
+          if git diff --cached --quiet; then
+            echo "No changes needed"
+            exit 0
+          fi
+          git commit -m "Add passport and visa images to visa cards"
+          git push
