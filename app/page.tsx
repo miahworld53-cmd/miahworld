@@ -41,18 +41,18 @@ export default function Home() {
         </div>
       </header>
 
-      {/* FLIGHT-FOCUSED HERO */}
+      {/* CLEAN KLIA-FOCUSED HERO */}
       <section id="home" className="relative min-h-[620px] overflow-hidden bg-slate-900 md:min-h-[680px]">
-        <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: "url(https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=2400&q=95)" }} />
-        <div className="absolute inset-0 bg-gradient-to-r from-slate-950/60 via-blue-950/20 to-transparent" />
+        <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: "url(https://asset.kompas.com/crops/WM5UkD8D2Z_Io5HY6RvX9olcyR7I%3D/41x0%3A991x633/750x500/data/photo/2023/08/13/64d8fba934556.jpg)" }} />
+        <div className="absolute inset-0 bg-gradient-to-r from-slate-950/35 via-slate-950/10 to-transparent" />
         <div className="relative mx-auto flex min-h-[620px] max-w-7xl items-center px-6 py-24 text-white md:min-h-[680px] md:py-28">
           <div className="max-w-3xl">
-            <p className="font-bold uppercase tracking-[0.25em]">FLYWITHMIA</p>
-            <h1 className="mt-6 max-w-4xl text-5xl font-extrabold leading-tight drop-shadow-lg md:text-7xl">Your Flight Starts With Us</h1>
-            <p className="mt-6 max-w-2xl text-xl drop-shadow-md">Domestic & international flight tickets with competitive fares, visa assistance, hotel booking and private tours.</p>
+            <p className="font-bold uppercase tracking-[0.25em] drop-shadow-md">FLYWITHMIA</p>
+            <h1 className="mt-6 max-w-4xl text-5xl font-extrabold leading-tight drop-shadow-xl md:text-7xl">Your Flight Starts With Us</h1>
+            <p className="mt-6 max-w-2xl text-xl drop-shadow-lg">Domestic & international flight tickets with competitive fares, visa assistance, hotel booking and private tours.</p>
             <div className="mt-10 flex flex-wrap gap-4">
               <a href="#flights" className="rounded-full bg-blue-600 px-7 py-4 font-bold text-white shadow-lg hover:bg-blue-700">Book Flight Ticket</a>
-              <a href="#contact" className="rounded-full border-2 border-white px-7 py-4 font-bold text-white hover:bg-white/10">Contact Us</a>
+              <a href="#contact" className="rounded-full border-2 border-white bg-black/10 px-7 py-4 font-bold text-white hover:bg-white/10">Contact Us</a>
             </div>
           </div>
         </div>
@@ -84,7 +84,7 @@ export default function Home() {
         <div className="mt-12 grid gap-5 md:grid-cols-3">{[["Kuala Lumpur → Dhaka","KUL → DAC"],["Kuala Lumpur → Bangkok","KUL → BKK"],["Kuala Lumpur → Singapore","KUL → SIN"]].map(([route,code])=><div key={route} className="rounded-2xl bg-white p-6 shadow-md ring-1 ring-slate-200"><p className="text-sm font-bold uppercase tracking-wide text-blue-600">Popular Route</p><h3 className="mt-2 text-xl font-bold text-slate-900">{route}</h3><p className="mt-2 text-slate-600">{code}</p></div>)}</div>
       </div></section>
 
-      <section id="contact" className="bg-slate-900 px-6 py-20 text-white"><div className="mx-auto max-w-7xl"><h2 className="text-4xl font-extrabold">Contact MIAH WORLD TRAVELS & TOURS</h2><div className="mt-8 space-y-3 text-slate-300"><p><strong className="text-white">📍 Shop Address:</strong><br />A-LG, 05, Sungai Besi Serdang Perdana,<br />Taman Serdang Perdana, 43300 Seri Kembangan, Selangor</p><p><strong className="text-white">📞 WhatsApp:</strong> 0166256738</p><p><strong className="text-white">📧 Email:</strong> miahworld53@gmail.com</p><p><strong className="text-white">📘 Facebook:</strong> <a href="https://www.facebook.com/miahworld1102" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:underline">MIAH WORLD TRAVELS & TOURS</a></p><p><strong className="text-white">🎵 TikTok:</strong> <a href="https://www.tiktok.com/@miahworld0" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:underline">@miahworld0</a></p><p><strong className="text-white">🌐 Website:</strong> <a href="https://www.miahworldtravels.com" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:underline">www.miahworldtravels.com</a></p><p className="mt-5 text-lg text-slate-300">FLYWITHMIA — Your Journey, Our Passion.</p></div></div></section>
+      <section id="contact" className="bg-slate-900 px-6 py-20 text-white"><div className="mx-auto max-w-7xl"><h2 className="text-4xl font-extrabold">Contact MIAH WORLD TRAVELS & TOURS</h2><div className="mt-8 space-y-3 text-slate-300"><p><strong className="text-white">📍 Shop Address:</strong><br />A-LG, 05, Sungai Besi Serdang Perdana,<br />Taman Serdang Perdana, 43300 Seri Kembangan, Selangor</p><p><strong className="text-white">📞 WhatsApp:</strong> 0166256738</p><p><strong className="text-white">📧 Email:</strong> miahworld53@gmail.com</p><p><strong className="text-white">📘 Facebook:</strong> <a href="https://www.facebook.com/miahworld1102" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:underline">MIAH WORLD TRAVELS & TOURS</a></p><p><strong className="text-white">🎵 TikTok:</strong> <a href="https://www.tiktok.com/@miahworld0" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:underline">@miahworld0</a></p><p><strong className="text-white">🌐 Website:</strong> <a href="https://www.miahworldtravels.com" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:underline">www.miahworldtravels.com</a></p><p className="mt-5 text-lg text-slate-300">FLYWITHMIA</p></div></div></section>
       <footer className="bg-black px-6 py-8 text-center text-white"><p>© 2026 MIAH WORLD TRAVELS & TOURS. All Rights Reserved.</p></footer>
     </main>
   );
