@@ -14,17 +14,16 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Use Malaysia Airlines flying hero image
+      - name: Replace hero with KLIA Malaysia Airlines aircraft photo
         run: |
           python - <<'PY'
           from pathlib import Path
           p = Path('app/page.tsx')
           s = p.read_text()
-          old = 'https://media.triple.guide/triple-cms/c_limit%2Cf_auto%2Ch_1024%2Cw_1024/f806fc36-44cb-4f27-a4a2-4d93e44b042e.jpeg'
-          new = 'https://www.malaysiaairlines.com/content/dam/mh/my/en/experience/our-fleet/v2/a330neo/750x562_MastheadBanner-fleet-330neo.jpg'
+          old = 'https://www.malaysiaairlines.com/content/dam/mh/my/en/experience/our-fleet/v2/a330neo/750x562_MastheadBanner-fleet-330neo.jpg'
+          new = 'https://commons.wikimedia.org/wiki/Special:Redirect/file/Malaysia_Airlines_Airbus_A330-323_(35386426481).jpg?width=2200&v=3'
           s = s.replace(old, new)
-          s = s.replace('bg-center" style={{ backgroundImage:', 'bg-center bg-[center_38%]" style={{ backgroundImage:')
-          s = s.replace('from-slate-950/20 via-slate-950/5 to-transparent', 'from-slate-950/45 via-slate-950/15 to-transparent')
+          s = s.replace('from-slate-950/45 via-slate-950/15 to-transparent', 'from-slate-950/65 via-slate-950/30 to-slate-950/5')
           p.write_text(s)
           PY
 
@@ -33,5 +32,5 @@ jobs:
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add app/page.tsx
-          git diff --cached --quiet || git commit -m 'Use Malaysia Airlines flying hero image'
+          git diff --cached --quiet || git commit -m 'Update hero to KLIA Malaysia Airlines aircraft'
           git push
