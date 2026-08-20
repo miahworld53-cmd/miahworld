@@ -43,8 +43,8 @@ export default function Home() {
 
       {/* CLEAN KLIA-FOCUSED HERO */}
       <section id="home" className="relative min-h-[620px] overflow-hidden bg-slate-900 md:min-h-[680px]">
-        <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: "url(https://asset.kompas.com/crops/WM5UkD8D2Z_Io5HY6RvX9olcyR7I%3D/41x0%3A991x633/750x500/data/photo/2023/08/13/64d8fba934556.jpg)" }} />
-        <div className="absolute inset-0 bg-gradient-to-r from-slate-950/35 via-slate-950/10 to-transparent" />
+        <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: "url(https://media.triple.guide/triple-cms/c_limit%2Cf_auto%2Ch_1024%2Cw_1024/f806fc36-44cb-4f27-a4a2-4d93e44b042e.jpeg)" }} />
+        <div className="absolute inset-0 bg-gradient-to-r from-slate-950/20 via-slate-950/5 to-transparent" />
         <div className="relative mx-auto flex min-h-[620px] max-w-7xl items-center px-6 py-24 text-white md:min-h-[680px] md:py-28">
           <div className="max-w-3xl">
             <p className="font-bold uppercase tracking-[0.25em] drop-shadow-md">FLYWITHMIA</p>
