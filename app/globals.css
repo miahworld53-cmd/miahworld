@@ -44,7 +44,8 @@ body { background:var(--background); color:var(--foreground); font-family:Arial,
 #tours .grid > div:nth-child(2)::before { background-image:linear-gradient(180deg,rgba(0,80,50,.03),rgba(0,80,50,.30)),url("https://images.pexels.com/photos/22616236/pexels-photo-22616236.jpeg?auto=compress&cs=tinysrgb&w=1400"); }
 #tours .grid > div:nth-child(3)::before { background-image:linear-gradient(180deg,rgba(0,80,140,.05),rgba(0,80,140,.35)),url("https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&w=1200&q=85"); }
 #tours .grid > div:nth-child(4)::before { background-image:linear-gradient(180deg,rgba(70,0,100,.05),rgba(70,0,100,.35)),url("https://images.unsplash.com/photo-1596422846543-75c6fc197f07?auto=format&fit=crop&w=1200&q=85"); }
-#tours .grid > div:nth-child(5)::before { background-image:linear-gradient(180deg,rgba(120,30,0,.05),rgba(120,30,0,.35)),url("https://images.unsplash.com/photo-1608998054797-9d5b1a4f7a17?auto=format&fit=crop&w=1200&q=85"); }
+/* Malacca: replace the broken image with a public-domain heritage photo. */
+#tours .grid > div:nth-child(5)::before { background-image:linear-gradient(180deg,rgba(120,30,0,.03),rgba(120,30,0,.35)),url("https://commons.wikimedia.org/wiki/Special:Redirect/file/Dutch_Square_Malacca.JPG"); }
 #tours .grid > div:nth-child(6)::before { background-image:linear-gradient(180deg,rgba(0,100,110,.05),rgba(0,100,110,.35)),url("https://images.unsplash.com/photo-1583417319070-4a69db38a482?auto=format&fit=crop&w=1200&q=85"); }
 #tours .grid > div > div:first-of-type { border-radius:0; }
 
