@@ -1,138 +1,74 @@
 "use client";
 
+const WA = "60166256738";
+
 export default function Home() {
   function sendFlightEnquiry() {
-    const from = (document.getElementById("flight-from") as HTMLInputElement).value;
-    const to = (document.getElementById("flight-to") as HTMLInputElement).value;
-    const departure = (document.getElementById("flight-date") as HTMLInputElement).value;
-    const passengers = (document.getElementById("flight-passengers") as HTMLSelectElement).value;
-
-    const message =
-      `Assalamu Alaikum, I would like to enquire about a flight.\n\n` +
-      `From: ${from}\n` +
-      `To: ${to}\n` +
-      `Departure: ${departure}\n` +
-      `Passengers: ${passengers}\n\n` +
-      `Please provide the best available fare.`;
-
-    window.open(`https://wa.me/60166256738?text=${encodeURIComponent(message)}`, "_blank");
+    const from = (document.getElementById("flight-from") as HTMLInputElement)?.value || "Kuala Lumpur (KUL)";
+    const to = (document.getElementById("flight-to") as HTMLInputElement)?.value || "Dhaka (DAC)";
+    const departure = (document.getElementById("flight-date") as HTMLInputElement)?.value || "Not specified";
+    const passengers = (document.getElementById("flight-passengers") as HTMLSelectElement)?.value || "1";
+    const message = `Assalamu Alaikum, I would like to enquire about a flight.\n\nFrom: ${from}\nTo: ${to}\nDeparture: ${departure}\nPassengers: ${passengers}\n\nPlease provide the best available fare.`;
+    window.open(`https://wa.me/${WA}?text=${encodeURIComponent(message)}`, "_blank");
   }
 
-  const tourCards = [
-    { category: "Malaysia Tour", title: "Kuala Lumpur", description: "Explore KLCC, Petronas Twin Towers, Batu Caves, KL Tower and other popular attractions in Kuala Lumpur.", duration: "Half Day / Full Day", highlights: "KLCC, Petronas Twin Towers, Batu Caves, KL Tower", gradient: "from-blue-600 to-cyan-500" },
-    { category: "Highland Tour", title: "Cameron Highlands", description: "Enjoy strawberry farms, tea plantations, scenic mountain views and the cool weather of Cameron Highlands.", duration: "Full Day", highlights: "Strawberry Farm, Tea Plantation, Scenic Mountain Views", gradient: "from-green-600 to-emerald-400" },
-    { category: "Island Tour", title: "Langkawi", description: "Discover beautiful beaches, island hopping, cable car rides, Sky Bridge and unforgettable island experiences.", duration: "Full Day / Multi-Day", highlights: "Island Hopping, Cable Car, Sky Bridge, Beautiful Beaches", gradient: "from-sky-600 to-blue-500" },
-    { category: "Mountain Tour", title: "Genting Highlands", description: "Enjoy the cable car, Genting attractions, scenic mountain views and a relaxing day away from Kuala Lumpur.", duration: "Full Day", highlights: "Cable Car, Genting Attractions, Scenic Mountain Views", gradient: "from-purple-600 to-pink-500" },
-    { category: "Heritage Tour", title: "Malacca", description: "Explore Jonker Street, A Famosa, Dutch Square, historical sites and the beautiful heritage of Malacca.", duration: "Full Day", highlights: "Jonker Street, A Famosa, Dutch Square, Heritage Sites", gradient: "from-red-600 to-orange-500" },
-    { category: "Island Tour", title: "Pangkor Island", description: "Relax on beautiful beaches, enjoy island scenery and discover the peaceful tropical charm of Pangkor Island.", duration: "Full Day / Multi-Day", highlights: "Pangkor Beaches, Island Views, Local Attractions", gradient: "from-teal-600 to-cyan-400" },
-    { category: "Highland Tour", title: "Penang Hill", description: "Enjoy cool mountain weather, panoramic views, the funicular railway and the beautiful surroundings of Penang Hill.", duration: "Full Day", highlights: "Penang Hill, Funicular Railway, Panoramic Views", gradient: "from-indigo-600 to-violet-500", image: "https://fasttur.ru/assets/images/illustration2/funicular_penang.jpg" },
-    { category: "City Tour", title: "Putrajaya", description: "Visit the Pink Mosque, Putrajaya Lake, beautiful bridges and Malaysia's impressive administrative city.", duration: "Half Day / Full Day", highlights: "Putra Mosque, Putrajaya Lake, Government Buildings", gradient: "from-cyan-600 to-teal-500", image: "https://res.cloudinary.com/dk0ndttcl/image/upload/q_auto%3Aeco/v1/stw/rs0rrf9jro6qmzqg1gu6" },
+  const tours = [
+    ["Malaysia Tour", "Kuala Lumpur", "KLCC, Petronas Twin Towers, Batu Caves and KL Tower.", "Half Day / Full Day"],
+    ["Highland Tour", "Cameron Highlands", "Strawberry farms, tea plantations and cool mountain views.", "Full Day"],
+    ["Island Tour", "Langkawi", "Island hopping, cable car, Sky Bridge and beautiful beaches.", "Full Day / Multi-Day"],
+    ["Mountain Tour", "Genting Highlands", "Cable car, attractions and scenic mountain views.", "Full Day"],
+    ["Heritage Tour", "Malacca", "Jonker Street, A Famosa, Dutch Square and heritage sites.", "Full Day"],
+    ["Island Tour", "Pangkor Island", "Beautiful beaches, island views and a peaceful tropical escape.", "Full Day / Multi-Day"],
+    ["Highland Tour", "Penang Hill", "Funicular railway, panoramic views and cool mountain weather.", "Full Day"],
+    ["City Tour", "Putrajaya", "Putra Mosque, Putrajaya Lake and impressive government buildings.", "Half Day / Full Day"],
   ];
 
-  const visaCards = [
-    { icon: "🇹🇭", title: "Thailand Visa", label: "POPULAR", description: "Tourist visa assistance, document checking and application guidance for Thailand.", image: "https://images.pexels.com/photos/7010105/pexels-photo-7010105.jpeg?auto=compress&cs=tinysrgb&w=900" },
-    { icon: "🇸🇬", title: "Singapore Visa", label: "POPULAR", description: "Professional support for Singapore tourist visa applications and document preparation.", image: "https://images.pexels.com/photos/7310015/pexels-photo-7310015.jpeg?auto=compress&cs=tinysrgb&w=900" },
-    { icon: "🇨🇳", title: "China Visa", label: "TOURIST VISA", description: "Tourist visa support and document guidance for travellers visiting China.", image: "https://images.pexels.com/photos/6815940/pexels-photo-6815940.jpeg?auto=compress&cs=tinysrgb&w=900" },
-    { icon: "🌏", title: "Other Visas", label: "WORLDWIDE", description: "Visa assistance for selected destinations worldwide. Ask our team about your destination.", image: "https://images.pexels.com/photos/7009481/pexels-photo-7009481.jpeg?auto=compress&cs=tinysrgb&w=900" },
+  const visas = [
+    ["🇹🇭", "Thailand Visa", "POPULAR", "Tourist visa assistance, document checking and application guidance."],
+    ["🇸🇬", "Singapore Visa", "POPULAR", "Professional support for Singapore tourist visa applications and document preparation."],
+    ["🇨🇳", "China Visa", "TOURIST VISA", "Tourist visa support and document guidance for travellers visiting China."],
+    ["🌏", "Other Visas", "WORLDWIDE", "Visa assistance for selected destinations worldwide."],
   ];
 
   return (
     <main className="min-h-screen bg-white text-slate-900">
       <header className="sticky top-0 z-50 bg-white shadow-sm">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
-          <a href="#home" className="flex items-center"><img src="/mw-logo.jpeg" alt="MIAH WORLD TRAVELS & TOURS" className="h-14 w-14 object-contain" /></a>
+          <a href="#home"><img src="/mw-logo.jpeg" alt="MIAH WORLD TRAVELS & TOURS" className="h-14 w-14 object-contain" /></a>
           <nav className="hidden items-center gap-8 font-medium md:flex">
             <a href="#home" className="hover:text-blue-600">Home</a><a href="#services" className="hover:text-blue-600">Services</a><a href="#tours" className="hover:text-blue-600">Tours</a><a href="#visa" className="hover:text-blue-600">Visa</a><a href="#flights" className="hover:text-blue-600">Flights</a><a href="#contact" className="hover:text-blue-600">Contact</a>
           </nav>
-          <a href="#contact" className="rounded-full bg-blue-600 px-6 py-3 font-bold text-white">WhatsApp</a>
+          <a href={`https://wa.me/${WA}`} target="_blank" rel="noreferrer" className="rounded-full bg-blue-600 px-6 py-3 font-bold text-white shadow-md hover:bg-blue-700">WhatsApp</a>
         </div>
       </header>
 
-      {/* CLEAN KLIA-FOCUSED HERO */}
-      <section id="home" className="relative min-h-[620px] overflow-hidden bg-slate-900 md:min-h-[680px]">
-        <div className="absolute inset-0 bg-cover bg-center bg-[center_38%]" style={{ backgroundImage: "url(https://commons.wikimedia.org/wiki/Special:Redirect/file/Malaysia_Airlines_Airbus_A330-323_(35386426481).jpg?width=2200&v=3)" }} />
-        <div className="absolute inset-0 bg-gradient-to-r from-slate-950/65 via-slate-950/30 to-slate-950/5" />
-        <div className="relative mx-auto flex min-h-[620px] max-w-7xl items-center px-6 py-24 text-white md:min-h-[680px] md:py-28">
+      <section id="home" className="relative min-h-[650px] overflow-hidden bg-slate-950">
+        <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: "url(https://www.sangfor.com/sites/default/files/inline-images/Cyberattack-on-Kuala-Lumpur-International-Airport.jpg)" }} />
+        <div className="absolute inset-0 bg-gradient-to-r from-slate-950/90 via-slate-950/60 to-slate-950/20" />
+        <div className="absolute right-[-4%] top-[12%] hidden h-[430px] w-[48%] overflow-hidden rounded-3xl md:block">
+          <img src="https://assets.nst.com.my/images/articles/airside-MS1307_NSTfield_image_socialmedia.var_1563018167.jpg" alt="Malaysia Airlines aircraft flying" className="h-full w-full object-cover opacity-95" />
+          <div className="absolute inset-0 bg-gradient-to-l from-transparent via-transparent to-slate-950/50" />
+        </div>
+        <div className="relative mx-auto flex min-h-[650px] max-w-7xl items-center px-6 py-24 text-white">
           <div className="max-w-3xl">
-            <p className="font-bold uppercase tracking-[0.25em] drop-shadow-md">FLYWITHMIA</p>
-            <h1 className="mt-6 max-w-4xl text-5xl font-extrabold leading-tight drop-shadow-xl md:text-7xl">Your Flight Starts With Us</h1>
-            <p className="mt-6 max-w-2xl text-xl drop-shadow-lg">Domestic & international flight tickets with competitive fares, visa assistance, hotel booking and private tours.</p>
-            <div className="mt-10 flex flex-wrap gap-4">
-              <a href="#flights" className="rounded-full bg-blue-600 px-7 py-4 font-bold text-white shadow-lg hover:bg-blue-700">Book Flight Ticket</a>
-              <a href="#contact" className="rounded-full border-2 border-white bg-black/10 px-7 py-4 font-bold text-white hover:bg-white/10">Contact Us</a>
-            </div>
+            <p className="font-bold uppercase tracking-[0.3em]">FLYWITHMIA</p>
+            <h1 className="mt-5 text-5xl font-extrabold leading-tight md:text-7xl">Your Flight Starts With Us</h1>
+            <p className="mt-6 max-w-2xl text-lg leading-8 md:text-xl">Domestic & international flight tickets with competitive fares, professional booking assistance, visa support, hotel booking and private tours.</p>
+            <div className="mt-9 flex flex-wrap gap-4"><a href="#flights" className="rounded-full bg-blue-600 px-7 py-4 font-bold text-white shadow-lg hover:bg-blue-700">Book Flight Ticket</a><a href={`https://wa.me/${WA}`} target="_blank" rel="noreferrer" className="rounded-full border-2 border-white px-7 py-4 font-bold text-white hover:bg-white/10">Contact Us</a></div>
           </div>
         </div>
       </section>
 
-      <section id="services" className="px-6 py-20">
-        <div className="mx-auto max-w-7xl"><h2 className="text-4xl font-extrabold">Our Services</h2><div className="mt-10 grid gap-6 md:grid-cols-4">
-          <div className="rounded-2xl bg-slate-100 p-6"><h3 className="text-xl font-bold">Flight Tickets</h3><p className="mt-3 text-slate-600">Domestic and international flight booking assistance.</p></div>
-          <div className="rounded-2xl bg-slate-100 p-6"><h3 className="text-xl font-bold">Visa Assistance</h3><p className="mt-3 text-slate-600">Tourist visa and travel documentation support.</p></div>
-          <div className="rounded-2xl bg-slate-100 p-6"><h3 className="text-xl font-bold">Hotel Booking</h3><p className="mt-3 text-slate-600">Comfortable hotel booking for your journey.</p></div>
-          <div className="rounded-2xl bg-slate-100 p-6"><h3 className="text-xl font-bold">Private Tours</h3><p className="mt-3 text-slate-600">Family, group and private tours across Malaysia.</p></div>
-        </div></div>
-      </section>
+      <section id="services" className="px-6 py-20"><div className="mx-auto max-w-7xl"><div className="text-center"><p className="font-bold uppercase tracking-widest text-blue-600">What We Do</p><h2 className="mt-2 text-4xl font-extrabold">Our Services</h2></div><div className="mt-10 grid gap-6 md:grid-cols-4">{[["✈️","Flight Tickets","Domestic and international flight booking assistance."],["🛂","Visa Assistance","Tourist visa and travel document support."],["🏨","Hotel Booking","Hotel booking for business and leisure trips."],["🚐","Private Tours","Private, family and group tours across Malaysia."]].map(([icon,title,text])=><div key={title} className="rounded-3xl border border-slate-200 bg-slate-50 p-7 shadow-sm"><div className="text-3xl">{icon}</div><h3 className="mt-5 text-xl font-extrabold">{title}</h3><p className="mt-3 leading-7 text-slate-600">{text}</p></div>)}</div></div></section>
 
-      <section id="tours" className="bg-slate-50 px-6 py-20"><div className="mx-auto max-w-7xl"><div className="text-center"><p className="font-bold uppercase tracking-widest text-blue-600">Explore Malaysia</p><h2 className="mt-3 text-4xl font-extrabold text-slate-900">Tour Packages</h2><p className="mx-auto mt-4 max-w-2xl text-lg text-slate-600">Discover Malaysia with our private, family and group tour packages.</p></div>
-        <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">{tourCards.map((tour) => (<div key={tour.title} className="overflow-hidden rounded-2xl bg-white shadow-lg">
-          {tour.image ? <div className="relative h-56 overflow-hidden"><img src={tour.image} alt={`${tour.title} tour`} className="h-full w-full object-cover" loading="lazy" /><div className="absolute inset-0 bg-black/20" /><div className="absolute inset-x-0 bottom-0 p-6 text-white"><p className="text-sm font-bold uppercase tracking-widest">{tour.category}</p><h3 className="mt-2 text-3xl font-extrabold drop-shadow">{tour.title}</h3></div></div> : <div className={`bg-gradient-to-r ${tour.gradient} px-6 py-10 text-white`}><p className="text-sm font-bold uppercase tracking-widest">{tour.category}</p><h3 className="mt-3 text-3xl font-extrabold">{tour.title}</h3></div>}
-          <div className="p-6"><p className="text-slate-600">{tour.description}</p><p className="mt-4 font-semibold text-slate-900">Private • Family • Group Tour</p><div className="mt-4 space-y-2 text-sm text-slate-600"><p><strong>Tour Type:</strong> Private, Family & Group</p><p><strong>Duration:</strong> {tour.duration}</p><p><strong>Highlights:</strong> {tour.highlights}</p></div><a href={`https://wa.me/60166256738?text=${encodeURIComponent(`Assalamu Alaikum, I would like to enquire about ${tour.title} tour packages.`)}`} target="_blank" rel="noopener noreferrer" className="mt-6 inline-block rounded-full bg-blue-600 px-6 py-3 font-bold text-white hover:bg-blue-700">Enquire Now</a></div>
-        </div>))}</div>
-        <div className="mt-12 text-center"><p className="text-lg font-semibold text-slate-700">Looking for a customized tour?</p><a href="https://wa.me/60166256738?text=Assalamu%20Alaikum%2C%20I%20would%20like%20to%20plan%20a%20customized%20tour." target="_blank" rel="noopener noreferrer" className="mt-4 inline-block rounded-full bg-green-500 px-8 py-4 font-bold text-white shadow-lg hover:bg-green-600">📱 Plan My Tour on WhatsApp</a></div>
-      </div></section>
+      <section id="flights" className="bg-slate-50 px-6 py-20"><div className="mx-auto max-w-7xl"><div className="text-center"><p className="font-bold uppercase tracking-widest text-blue-600">FLIGHT BOOKING</p><h2 className="mt-2 text-4xl font-extrabold">Find Your Flight</h2><p className="mt-4 text-lg text-slate-600">Tell us your travel details and our team will find the best available fare.</p></div><div className="mx-auto mt-10 max-w-5xl rounded-3xl bg-white p-7 shadow-xl ring-1 ring-slate-200 md:p-10"><div className="grid gap-5 md:grid-cols-4"><label className="font-semibold">From<input id="flight-from" defaultValue="Kuala Lumpur (KUL)" className="mt-2 w-full rounded-xl border border-slate-300 px-4 py-3 font-normal" /></label><label className="font-semibold">To<input id="flight-to" defaultValue="Dhaka (DAC)" className="mt-2 w-full rounded-xl border border-slate-300 px-4 py-3 font-normal" /></label><label className="font-semibold">Departure<input id="flight-date" type="date" className="mt-2 w-full rounded-xl border border-slate-300 px-4 py-3 font-normal" /></label><label className="font-semibold">Passengers<select id="flight-passengers" defaultValue="1" className="mt-2 w-full rounded-xl border border-slate-300 px-4 py-3 font-normal"><option value="1">1 Passenger</option><option value="2">2 Passengers</option><option value="3">3 Passengers</option><option value="4">4 Passengers</option><option value="5+">5+ Passengers</option></select></label></div><div className="mt-8 flex flex-col gap-5 border-t border-slate-200 pt-7 md:flex-row md:items-center md:justify-between"><div><h3 className="text-xl font-extrabold">Need a better fare?</h3><p className="mt-1 text-slate-600">Send us your details and we will assist you on WhatsApp.</p></div><button onClick={sendFlightEnquiry} className="rounded-full bg-blue-600 px-8 py-4 font-bold text-white shadow-lg hover:bg-blue-700">Search & Enquire</button></div></div><div className="mt-10 grid gap-5 md:grid-cols-3">{[["Kuala Lumpur → Dhaka","KUL → DAC"],["Kuala Lumpur → Bangkok","KUL → BKK"],["Kuala Lumpur → Singapore","KUL → SIN"]].map(([route,code])=><div key={route} className="rounded-2xl bg-white p-6 shadow-md ring-1 ring-slate-200"><p className="text-sm font-bold uppercase text-blue-600">Popular Route</p><h3 className="mt-2 text-xl font-bold">{route}</h3><p className="mt-2 text-slate-600">{code}</p></div>)}</div></div></section>
 
-      {/* PREMIUM VISA SECTION */}
-      <section id="visa" className="relative overflow-hidden bg-slate-50 px-6 py-24">
-        <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-blue-700 via-cyan-500 to-blue-700" />
-        <div className="mx-auto max-w-7xl">
-          <div className="mx-auto max-w-3xl text-center">
-            <p className="font-bold uppercase tracking-[0.22em] text-blue-600">VISA SERVICES</p>
-            <h2 className="mt-3 text-4xl font-extrabold tracking-tight text-slate-900 md:text-5xl">Visa Assistance Made Simple</h2>
-            <p className="mx-auto mt-5 max-w-2xl text-lg leading-8 text-slate-600">Planning your next trip? Let MIAH WORLD help you with visa documentation, application guidance and document checking.</p>
-          </div>
+      <section id="tours" className="px-6 py-20"><div className="mx-auto max-w-7xl"><div className="text-center"><p className="font-bold uppercase tracking-widest text-blue-600">Explore Malaysia</p><h2 className="mt-2 text-4xl font-extrabold">Tour Packages</h2><p className="mt-4 text-lg text-slate-600">Private • Family • Group Tours</p></div><div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-4">{tours.map(([category,title,description,duration])=><div key={title} className="overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-xl"><div className="flex h-32 items-end bg-gradient-to-br from-blue-700 via-blue-600 to-cyan-500 p-6 text-white"><div><p className="text-xs font-bold uppercase tracking-widest">{category}</p><h3 className="mt-2 text-2xl font-extrabold">{title}</h3></div></div><div className="p-6"><p className="leading-7 text-slate-600">{description}</p><p className="mt-4 text-sm font-semibold">Duration: {duration}</p><a href={`https://wa.me/${WA}?text=${encodeURIComponent(`Assalamu Alaikum, I would like to enquire about ${title} tour.`)}`} target="_blank" rel="noreferrer" className="mt-6 inline-block rounded-full bg-blue-600 px-5 py-3 font-bold text-white">Enquire Now</a></div></div>)}</div></div></section>
 
-          <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
-            {visaCards.map((visa) => (
-              <div key={visa.title} className="group flex h-full flex-col rounded-3xl border border-slate-200 bg-white p-7 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-xl">
-                <div className="relative overflow-hidden rounded-2xl">
-                  <img src={visa.image} alt={`${visa.title} passport and visa travel document`} className="h-40 w-full object-cover" loading="lazy" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/35 via-transparent to-transparent" />
-                  <div className="absolute left-4 top-4 rounded-xl bg-white/90 px-3 py-2 text-2xl shadow-sm">{visa.icon}</div>
-                  <span className="absolute right-4 top-4 rounded-full bg-white/95 px-3 py-1 text-[11px] font-extrabold tracking-wider text-blue-700 shadow-sm">{visa.label}</span>
-                </div>
-                <h3 className="mt-6 text-2xl font-extrabold text-slate-900">{visa.title}</h3>
-                <p className="mt-3 flex-1 leading-7 text-slate-600">{visa.description}</p>
-                <a href={`https://wa.me/60166256738?text=${encodeURIComponent(`Assalamu Alaikum, I would like to enquire about ${visa.title}.`)}`} target="_blank" rel="noopener noreferrer" className="mt-6 inline-flex items-center justify-center rounded-full bg-blue-600 px-5 py-3.5 font-bold text-white shadow-md transition hover:bg-blue-700">Enquire on WhatsApp <span className="ml-2">→</span></a>
-              </div>
-            ))}
-          </div>
+      <section id="visa" className="bg-slate-50 px-6 py-20"><div className="mx-auto max-w-7xl"><div className="text-center"><p className="font-bold uppercase tracking-widest text-blue-600">VISA SERVICES</p><h2 className="mt-2 text-4xl font-extrabold">Visa Assistance Made Simple</h2><p className="mt-4 text-lg text-slate-600">Document checking, application guidance and travel visa support.</p></div><div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-4">{visas.map(([icon,title,label,description])=><div key={title} className="rounded-3xl border border-slate-200 bg-white p-7 shadow-sm transition hover:-translate-y-1 hover:shadow-xl"><div className="flex items-center justify-between"><div className="rounded-2xl bg-blue-50 px-4 py-3 text-3xl">{icon}</div><span className="rounded-full bg-blue-50 px-3 py-1 text-xs font-extrabold text-blue-700">{label}</span></div><h3 className="mt-6 text-2xl font-extrabold">{title}</h3><p className="mt-3 min-h-20 leading-7 text-slate-600">{description}</p><a href={`https://wa.me/${WA}?text=${encodeURIComponent(`Assalamu Alaikum, I would like to enquire about ${title}.`)}`} target="_blank" rel="noreferrer" className="mt-6 inline-flex w-full justify-center rounded-full bg-blue-600 px-5 py-3.5 font-bold text-white">Enquire on WhatsApp →</a></div>)}</div><div className="mt-10 rounded-3xl bg-white p-8 shadow-sm ring-1 ring-slate-200"><div className="grid gap-6 md:grid-cols-3"><div><p className="font-extrabold uppercase tracking-widest text-blue-600">OUR SUPPORT</p><h3 className="mt-2 text-2xl font-extrabold">What we can help with</h3></div><div className="space-y-2 text-slate-700"><p>✓ Document checking & guidance</p><p>✓ Application preparation support</p></div><div className="space-y-2 text-slate-700"><p>✓ Travel document assistance</p><p>✓ WhatsApp consultation</p></div></div></div></div></section>
 
-          <div className="mt-10 rounded-3xl bg-white p-7 shadow-sm ring-1 ring-slate-200 md:p-9">
-            <div className="grid gap-8 md:grid-cols-3 md:items-center">
-              <div>
-                <p className="text-sm font-extrabold uppercase tracking-widest text-blue-600">OUR SUPPORT</p>
-                <h3 className="mt-2 text-2xl font-extrabold text-slate-900">What we can help with</h3>
-              </div>
-              <div className="space-y-3 text-slate-700"><p>✓ Document checking & guidance</p><p>✓ Application preparation support</p></div>
-              <div className="space-y-3 text-slate-700"><p>✓ Travel document assistance</p><p>✓ WhatsApp consultation</p></div>
-            </div>
-          </div>
-
-          <div className="mt-10 overflow-hidden rounded-3xl bg-gradient-to-r from-blue-700 to-cyan-600 p-8 text-white shadow-xl md:flex md:items-center md:justify-between md:px-10">
-            <div><p className="text-sm font-bold uppercase tracking-widest text-blue-100">NEED HELP WITH A VISA?</p><h3 className="mt-2 text-2xl font-extrabold md:text-3xl">Tell us your destination — we’ll guide you.</h3></div>
-            <a href="https://wa.me/60166256738?text=Assalamu%20Alaikum%2C%20I%20need%20visa%20assistance.%20Please%20guide%20me." target="_blank" rel="noopener noreferrer" className="mt-6 inline-flex rounded-full bg-white px-7 py-3.5 font-extrabold text-blue-700 shadow-lg hover:bg-slate-100 md:mt-0">Chat on WhatsApp</a>
-          </div>
-        </div>
-      </section>
-
-      <section id="flights" className="bg-gradient-to-br from-blue-50 via-white to-cyan-50 px-6 py-20"><div className="mx-auto max-w-7xl"><div className="text-center"><p className="font-bold uppercase tracking-widest text-blue-600">FLIGHT BOOKING</p><h2 className="mt-3 text-4xl font-extrabold text-slate-900 md:text-5xl">Find Your Next Flight</h2><p className="mx-auto mt-5 max-w-2xl text-lg text-slate-600">Domestic and international flight tickets with competitive fares and professional booking assistance.</p></div>
-        <div className="mx-auto mt-12 max-w-5xl rounded-3xl bg-white p-6 shadow-xl ring-1 ring-slate-200 md:p-10"><div className="mb-8 flex flex-wrap gap-6"><label className="flex items-center gap-2 font-semibold text-slate-800"><input type="radio" name="trip" defaultChecked className="h-4 w-4" />Round Trip</label><label className="flex items-center gap-2 font-semibold text-slate-800"><input type="radio" name="trip" className="h-4 w-4" />One Way</label></div><div className="grid gap-5 md:grid-cols-2 lg:grid-cols-4"><div><label className="mb-2 block text-sm font-bold text-slate-700">From</label><input id="flight-from" type="text" placeholder="Kuala Lumpur (KUL)" className="w-full rounded-xl border border-slate-300 px-4 py-4 outline-none" /></div><div><label className="mb-2 block text-sm font-bold text-slate-700">To</label><input id="flight-to" type="text" placeholder="Dhaka (DAC)" className="w-full rounded-xl border border-slate-300 px-4 py-4 outline-none" /></div><div><label className="mb-2 block text-sm font-bold text-slate-700">Departure</label><input id="flight-date" type="date" className="w-full rounded-xl border border-slate-300 px-4 py-4 outline-none" /></div><div><label className="mb-2 block text-sm font-bold text-slate-700">Passengers</label><select id="flight-passengers" className="w-full rounded-xl border border-slate-300 px-4 py-4 outline-none" defaultValue="1">{Array.from({ length: 9 }, (_, i) => <option key={i + 1} value={i + 1}>{i + 1} Passenger{i ? "s" : ""}</option>)}</select></div></div><div className="mt-8 flex flex-col items-center justify-between gap-5 border-t border-slate-200 pt-8 md:flex-row"><div><h3 className="text-xl font-bold text-slate-900">Need a better fare?</h3><p className="mt-1 text-slate-600">Send us your travel details and our team will assist you.</p></div><button type="button" onClick={sendFlightEnquiry} className="inline-flex rounded-full bg-blue-600 px-8 py-4 font-bold text-white">Search & Enquire</button></div></div>
-        <div className="mt-12 grid gap-5 md:grid-cols-3">{[["Kuala Lumpur → Dhaka","KUL → DAC"],["Kuala Lumpur → Bangkok","KUL → BKK"],["Kuala Lumpur → Singapore","KUL → SIN"]].map(([route,code])=><div key={route} className="rounded-2xl bg-white p-6 shadow-md ring-1 ring-slate-200"><p className="text-sm font-bold uppercase tracking-wide text-blue-600">Popular Route</p><h3 className="mt-2 text-xl font-bold text-slate-900">{route}</h3><p className="mt-2 text-slate-600">{code}</p></div>)}</div>
-      </div></section>
-
-      <section id="contact" className="bg-slate-900 px-6 py-20 text-white"><div className="mx-auto max-w-7xl"><h2 className="text-4xl font-extrabold">Contact MIAH WORLD TRAVELS & TOURS</h2><div className="mt-8 space-y-3 text-slate-300"><p><strong className="text-white">📍 Shop Address:</strong><br />A-LG, 05, Sungai Besi Serdang Perdana,<br />Taman Serdang Perdana, 43300 Seri Kembangan, Selangor</p><p><strong className="text-white">📞 WhatsApp:</strong> 0166256738</p><p><strong className="text-white">📧 Email:</strong> miahworld53@gmail.com</p><p><strong className="text-white">📘 Facebook:</strong> <a href="https://www.facebook.com/miahworld1102" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:underline">MIAH WORLD TRAVELS & TOURS</a></p><p><strong className="text-white">🎵 TikTok:</strong> <a href="https://www.tiktok.com/@miahworld0" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:underline">@miahworld0</a></p><p><strong className="text-white">🌐 Website:</strong> <a href="https://www.miahworldtravels.com" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:underline">www.miahworldtravels.com</a></p><p className="mt-5 text-lg text-slate-300">FLYWITHMIA</p></div></div></section>
-      <footer className="bg-black px-6 py-8 text-center text-white"><p>© 2026 MIAH WORLD TRAVELS & TOURS. All Rights Reserved.</p></footer>
+      <section id="contact" className="bg-slate-900 px-6 py-20 text-white"><div className="mx-auto max-w-7xl"><h2 className="text-4xl font-extrabold">Contact MIAH WORLD TRAVELS & TOURS</h2><div className="mt-8 space-y-3 text-slate-300"><p><strong className="text-white">📍 Shop Address:</strong><br />A-LG, 05, Sungai Besi Serdang Perdana,<br />Taman Serdang Perdana, 43300 Seri Kembangan, Selangor</p><p><strong className="text-white">📞 WhatsApp:</strong> 0166256738</p><p><strong className="text-white">📧 Email:</strong> miahworld53@gmail.com</p><p><strong className="text-white">🌐 Website:</strong> www.miahworldtravels.com</p><p className="pt-3 text-lg">FLYWITHMIA</p></div></div></section>
+      <footer className="bg-black px-6 py-8 text-center text-white">© 2026 MIAH WORLD TRAVELS & TOURS. All Rights Reserved.</footer>
     </main>
   );
 }
