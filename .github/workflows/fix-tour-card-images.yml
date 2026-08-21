@@ -1,0 +1,46 @@
+name: Fix Penang and Putrajaya tour images
+
+on:
+  push:
+    branches: [master]
+
+permissions:
+  contents: write
+
+jobs:
+  fix-images:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Replace broken tour image URLs
+        shell: python
+        run: |
+          from pathlib import Path
+
+          path = Path('app/page.tsx')
+          text = path.read_text(encoding='utf-8')
+
+          old_penang = 'https://images.unsplash.com/photo-1513415564515-763d91423bdd?auto=format&fit=crop&w=1000&q=80'
+          new_penang = 'https://storage.googleapis.com/accesstravel-media/attractions/13003/photos/13003_5230946.jpg'
+
+          old_putrajaya = 'https://images.unsplash.com/photo-1508009603885-50cf7c579365?auto=format&fit=crop&w=1000&q=80'
+          new_putrajaya = 'https://ak-d.tripcdn.com/images/0102w12000mqoquz48AF6.jpg'
+
+          text = text.replace(old_penang, new_penang)
+          text = text.replace(old_putrajaya, new_putrajaya)
+          path.write_text(text, encoding='utf-8')
+
+      - name: Commit website update
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add app/page.tsx
+          if git diff --cached --quiet; then
+            echo "No changes needed"
+            exit 0
+          fi
+          git commit -m "Fix Penang Hill and Putrajaya tour images"
+          git push
