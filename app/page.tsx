@@ -34,8 +34,8 @@ const routes = [
 
 const transport = [
   ["✈️", "Airport Pickup & Drop-off", "Reliable KLIA / KLIA2 airport transfers for individuals, families and groups.", "/airport pickup 01.jpeg"],
+  ["✈️", "Airport Drop-off", "Reliable airport drop-off service from hotels, homes and business locations to KLIA / KLIA2.", "/airport drop 02.jpeg"],
   ["🚘", "Car Rental", "Brand-new cars available for daily, weekly and monthly rental. Self-drive options available.", "/car rent 03.jpeg"],
-  ["🚐", "Private Transport", "Comfortable private cars and vans with professional drivers for tours, business and family travel.", "/private transport 04.jpeg"],
   ["🧳", "Travel Assistance", "Airport meet-and-assist, luggage support and point-to-point transport arrangements.", "/travel assistant 04.jpeg"],
 ];
 
