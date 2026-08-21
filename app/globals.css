@@ -11,29 +11,20 @@
 
 body { background:var(--background); color:var(--foreground); font-family:Arial,Helvetica,sans-serif; }
 
-#home {
-  position:relative; overflow:hidden; min-height:560px;
-  background-image:none !important;
-}
-#home > div:first-child {
-  position:absolute !important; inset:0; z-index:0 !important; min-height:100% !important; display:block !important;
-  background-image:linear-gradient(90deg,rgba(7,43,145,.28) 0%,rgba(14,91,219,.16) 48%,rgba(0,174,207,.10) 100%),url("https://upload.wikimedia.org/wikipedia/commons/8/86/Malaysia_Airlines_Airbus_A330-323E_msn_1243_9M-MTE_%28F-WWYP%29.jpg") !important;
-  background-size:cover !important; background-position:center !important;
-}
-#home > div:nth-child(2) {
-  position:absolute !important; inset:0; z-index:1 !important; min-height:100% !important; display:block !important;
-  background:linear-gradient(90deg,rgba(7,43,145,.58) 0%,rgba(7,43,145,.20) 48%,rgba(0,150,190,.12) 100%);
-}
-#home > div:nth-child(3) {
-  position:relative !important; z-index:2 !important; min-height:560px; display:flex; flex-direction:column; justify-content:center;
-}
+/* Clean flight-focused hero: keep the KLIA + Malaysia Airlines image from page.tsx */
+#home { position:relative; overflow:hidden; min-height:620px; }
+#home > div:first-child { position:absolute !important; inset:0; z-index:0 !important; min-height:100% !important; display:block !important; background-size:cover !important; background-position:center 42% !important; }
+#home > div:nth-child(2) { position:absolute !important; inset:0; z-index:1 !important; min-height:100% !important; display:block !important; background:linear-gradient(90deg,rgba(3,24,75,.58) 0%,rgba(7,43,145,.24) 50%,rgba(0,120,150,.08) 100%); }
+#home > div:nth-child(3) { position:relative !important; z-index:2 !important; min-height:620px; display:flex; flex-direction:column; justify-content:center; }
 
-/* Professional service cards with responsive travel images */
-#services .grid > div {
-  position:relative; overflow:hidden; padding:0 !important; background:#fff !important;
-  border:1px solid rgba(148,163,184,.16); box-shadow:0 12px 30px rgba(15,23,42,.08);
-  transition:transform .22s ease,box-shadow .22s ease;
-}
+/* Header polish */
+header { backdrop-filter:blur(10px); }
+header nav a { transition:color .2s ease; }
+header > div > a:last-child { box-shadow:0 8px 22px rgba(37,99,235,.18); transition:transform .2s ease,box-shadow .2s ease; }
+header > div > a:last-child:hover { transform:translateY(-1px); box-shadow:0 12px 28px rgba(37,99,235,.28); }
+
+/* Professional service cards */
+#services .grid > div { position:relative; overflow:hidden; padding:0 !important; background:#fff !important; border:1px solid rgba(148,163,184,.16); box-shadow:0 12px 30px rgba(15,23,42,.08); transition:transform .22s ease,box-shadow .22s ease; }
 #services .grid > div:hover { transform:translateY(-5px); box-shadow:0 18px 40px rgba(15,23,42,.14); }
 #services .grid > div::before { content:""; display:block; width:100%; height:170px; background-position:center; background-size:cover; background-repeat:no-repeat; }
 #services .grid > div:nth-child(1)::before { background-image:linear-gradient(180deg,rgba(0,48,120,.04),rgba(0,48,120,.38)),url("https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=1200&q=85"); }
@@ -44,7 +35,7 @@ body { background:var(--background); color:var(--foreground); font-family:Arial,
 #services .grid > div h3 { margin-top:22px; }
 #services .grid > div p { margin-bottom:24px; }
 
-/* Professional tour cards with destination photography */
+/* Tour cards */
 #tours .grid > div { overflow:hidden; border:1px solid rgba(148,163,184,.16); box-shadow:0 12px 30px rgba(15,23,42,.08); transition:transform .22s ease,box-shadow .22s ease; }
 #tours .grid > div:hover { transform:translateY(-5px); box-shadow:0 20px 45px rgba(15,23,42,.15); }
 #tours .grid > div::before { content:""; display:block; width:100%; height:190px; background-position:center; background-size:cover; background-repeat:no-repeat; }
@@ -56,89 +47,36 @@ body { background:var(--background); color:var(--foreground); font-family:Arial,
 #tours .grid > div:nth-child(6)::before { background-image:linear-gradient(180deg,rgba(0,100,110,.05),rgba(0,100,110,.35)),url("https://images.unsplash.com/photo-1583417319070-4a69db38a482?auto=format&fit=crop&w=1200&q=85"); }
 #tours .grid > div > div:first-of-type { border-radius:0; }
 
+/* Premium visa cards */
+#visa { scroll-margin-top:80px; }
+#visa img { transition:transform .35s ease; }
+#visa .group:hover img { transform:scale(1.04); }
+#visa .group { box-shadow:0 12px 34px rgba(15,23,42,.06); }
+
 /* Premium company-branded flight booking section */
-#flights {
-  position:relative;
-  overflow:hidden;
-  background:linear-gradient(180deg,#f8fbff 0%,#ffffff 58%,#f0fbff 100%) !important;
-}
-#flights::before {
-  content:"MIAH WORLD TRAVELS & TOURS  •  FLYWITHMIA";
-  display:block;
-  width:max-content;
-  max-width:calc(100% - 40px);
-  margin:0 auto 18px;
-  padding:10px 20px;
-  border:1px solid rgba(37,99,235,.14);
-  border-radius:999px;
-  background:#fff;
-  color:#1747b5;
-  font-size:12px;
-  font-weight:800;
-  letter-spacing:.12em;
-  text-transform:uppercase;
-  box-shadow:0 8px 24px rgba(15,23,42,.06);
-  text-align:center;
-}
+#flights { position:relative; overflow:hidden; background:linear-gradient(180deg,#f8fbff 0%,#ffffff 58%,#f0fbff 100%) !important; }
+#flights::before { content:"MIAH WORLD TRAVELS & TOURS  •  FLYWITHMIA"; display:block; width:max-content; max-width:calc(100% - 40px); margin:0 auto 18px; padding:10px 20px; border:1px solid rgba(37,99,235,.14); border-radius:999px; background:#fff; color:#1747b5; font-size:12px; font-weight:800; letter-spacing:.12em; text-transform:uppercase; box-shadow:0 8px 24px rgba(15,23,42,.06); text-align:center; }
 #flights > div > div:first-child p { color:#2563eb; }
 #flights > div > div:first-child h2 { letter-spacing:-.03em; }
-#flights > div > div:nth-child(2) {
-  position:relative;
-  max-width:1080px !important;
-  border:1px solid rgba(37,99,235,.14);
-  border-radius:28px !important;
-  background:rgba(255,255,255,.96) !important;
-  box-shadow:0 24px 70px rgba(15,23,42,.10) !important;
-}
-#flights > div > div:nth-child(2)::before {
-  content:"✈  MIAH WORLD  |  FLIGHT TICKETING";
-  display:block;
-  margin:-2px 0 26px;
-  padding:15px 18px;
-  border-radius:16px;
-  background:linear-gradient(90deg,#0b45b8,#147ad6);
-  color:#fff;
-  font-size:13px;
-  font-weight:800;
-  letter-spacing:.1em;
-  text-align:left;
-}
-#flights input,#flights select {
-  min-height:56px;
-  border-color:#d7e0ec !important;
-  background:#fff !important;
-  transition:border-color .2s ease,box-shadow .2s ease,transform .2s ease;
-}
-#flights input:focus,#flights select:focus {
-  border-color:#2563eb !important;
-  box-shadow:0 0 0 4px rgba(37,99,235,.10) !important;
-}
-#flights button {
-  min-height:56px;
-  padding-left:30px !important;
-  padding-right:30px !important;
-  box-shadow:0 10px 24px rgba(37,99,235,.22);
-  transition:transform .2s ease,box-shadow .2s ease,background .2s ease;
-}
+#flights > div > div:nth-child(2) { position:relative; max-width:1080px !important; border:1px solid rgba(37,99,235,.14); border-radius:28px !important; background:rgba(255,255,255,.96) !important; box-shadow:0 24px 70px rgba(15,23,42,.10) !important; }
+#flights > div > div:nth-child(2)::before { content:"✈  MIAH WORLD  |  FLIGHT TICKETING"; display:block; margin:-2px 0 26px; padding:15px 18px; border-radius:16px; background:linear-gradient(90deg,#0b45b8,#147ad6); color:#fff; font-size:13px; font-weight:800; letter-spacing:.1em; text-align:left; }
+#flights input,#flights select { min-height:56px; border-color:#d7e0ec !important; background:#fff !important; transition:border-color .2s ease,box-shadow .2s ease,transform .2s ease; }
+#flights input:focus,#flights select:focus { border-color:#2563eb !important; box-shadow:0 0 0 4px rgba(37,99,235,.10) !important; }
+#flights button { min-height:56px; padding-left:30px !important; padding-right:30px !important; box-shadow:0 10px 24px rgba(37,99,235,.22); transition:transform .2s ease,box-shadow .2s ease,background .2s ease; }
 #flights button:hover { transform:translateY(-2px); box-shadow:0 14px 28px rgba(37,99,235,.28); }
-#flights > div > div:nth-child(3) > div {
-  border:1px solid rgba(148,163,184,.16);
-  box-shadow:0 10px 28px rgba(15,23,42,.06);
-  transition:transform .2s ease,box-shadow .2s ease;
-}
+#flights > div > div:nth-child(3) > div { border:1px solid rgba(148,163,184,.16); box-shadow:0 10px 28px rgba(15,23,42,.06); transition:transform .2s ease,box-shadow .2s ease; }
 #flights > div > div:nth-child(3) > div:hover { transform:translateY(-4px); box-shadow:0 16px 34px rgba(15,23,42,.10); }
-#flights > div > div:nth-child(3) > div::after {
-  content:"Book with MIAH WORLD";
-  display:block;
-  margin-top:14px;
-  color:#2563eb;
-  font-size:12px;
-  font-weight:800;
-  letter-spacing:.04em;
-}
+#flights > div > div:nth-child(3) > div::after { content:"Book with MIAH WORLD"; display:block; margin-top:14px; color:#2563eb; font-size:12px; font-weight:800; letter-spacing:.04em; }
+
+/* Contact/footer readability */
+#contact a { transition:transform .2s ease,box-shadow .2s ease; }
+#contact a:hover { transform:translateY(-2px); }
 
 @media (max-width:768px) {
   #home,#home > div:nth-child(3) { min-height:620px; }
+  #home > div:first-child { background-position:center center !important; }
+  #home h1 { font-size:clamp(2.6rem,11vw,4rem); line-height:1.02; }
+  #home p { max-width:100%; }
   #services .grid > div::before { height:155px; }
   #services .grid > div h3,#services .grid > div p { margin-left:20px; margin-right:20px; }
   #tours .grid > div::before { height:180px; }
