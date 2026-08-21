@@ -64,6 +64,8 @@ header > div > a:last-child:hover { transform:translateY(-1px); box-shadow:0 12p
 #flights input:focus,#flights select:focus { border-color:#2563eb !important; box-shadow:0 0 0 4px rgba(37,99,235,.10) !important; }
 #flights button { min-height:56px; padding-left:30px !important; padding-right:30px !important; box-shadow:0 10px 24px rgba(37,99,235,.22); transition:transform .2s ease,box-shadow .2s ease,background .2s ease; }
 #flights button:hover { transform:translateY(-2px); box-shadow:0 14px 28px rgba(37,99,235,.28); }
+#flights > div > div:nth-child(3) { position:relative; }
+#flights > div > div:nth-child(3)::before { content:""; display:block; width:100%; height:285px; margin:8px 0 28px; border-radius:24px; background:#fff url('/airline-partners.svg') center/contain no-repeat; box-shadow:0 12px 32px rgba(15,23,42,.06); border:1px solid rgba(148,163,184,.14); }
 #flights > div > div:nth-child(3) > div { border:1px solid rgba(148,163,184,.16); box-shadow:0 10px 28px rgba(15,23,42,.06); transition:transform .2s ease,box-shadow .2s ease; }
 #flights > div > div:nth-child(3) > div:hover { transform:translateY(-4px); box-shadow:0 16px 34px rgba(15,23,42,.10); }
 #flights > div > div:nth-child(3) > div::after { content:"Book with MIAH WORLD"; display:block; margin-top:14px; color:#2563eb; font-size:12px; font-weight:800; letter-spacing:.04em; }
@@ -82,4 +84,5 @@ header > div > a:last-child:hover { transform:translateY(-1px); box-shadow:0 12p
   #tours .grid > div::before { height:180px; }
   #flights::before { font-size:10px; letter-spacing:.08em; padding:9px 14px; }
   #flights > div > div:nth-child(2)::before { font-size:11px; text-align:center; }
+  #flights > div > div:nth-child(3)::before { height:210px; margin:4px 0 22px; border-radius:20px; background-size:cover; background-position:center; }
 }
