@@ -1,21 +1,22 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="300" viewBox="0 0 1200 300">
-  <rect width="1200" height="300" rx="28" fill="#ffffff"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="600" viewBox="0 0 1000 600">
+  <rect width="1000" height="600" rx="28" fill="#ffffff"/>
   <style>
-    .card{fill:#fff;stroke:#edf2f7;stroke-width:2}
-    .name{font-family:Arial,Helvetica,sans-serif;font-weight:700;text-anchor:middle;fill:#334155}
-    .small{font-size:13px}.medium{font-size:16px}.big{font-size:22px}
+    .card{fill:#fff;stroke:#e6edf5;stroke-width:2}
+    .name{font-family:Arial,Helvetica,sans-serif;font-weight:700;text-anchor:middle}
+    .small{font-size:14px;fill:#64748b}.medium{font-size:25px}.big{font-size:32px}
   </style>
   <g>
-    <g transform="translate(20,20)"><rect class="card" width="180" height="110" rx="18"/><text x="90" y="62" class="name big" fill="#e31b23">Lion Air</text><text x="90" y="92" class="name small">Lion Air</text></g>
-    <g transform="translate(210,20)"><rect class="card" width="180" height="110" rx="18"/><circle cx="90" cy="52" r="30" fill="#5b2a86"/><text x="90" y="59" class="name medium" fill="#fff">THAI</text><text x="90" y="92" class="name small">Thai Airways</text></g>
-    <g transform="translate(400,20)"><rect class="card" width="180" height="110" rx="18"/><text x="90" y="60" class="name medium" fill="#c8102e">US-BANGLA</text><text x="90" y="92" class="name small">US-Bangla Airlines</text></g>
-    <g transform="translate(590,20)"><rect class="card" width="180" height="110" rx="18"/><text x="90" y="62" class="name big" fill="#193c9e">IndiGo</text><text x="90" y="92" class="name small">IndiGo</text></g>
-    <g transform="translate(780,20)"><rect class="card" width="180" height="110" rx="18"/><text x="90" y="62" class="name big" fill="#e31b23">Batik Air</text><text x="90" y="92" class="name small">Batik Air</text></g>
-    <g transform="translate(970,20)"><rect class="card" width="180" height="110" rx="18"/><text x="90" y="62" class="name medium" fill="#143d8d">Malaysia</text><text x="90" y="92" class="name small">Malaysia Airlines</text></g>
-    <g transform="translate(115,155)"><rect class="card" width="180" height="110" rx="18"/><text x="90" y="62" class="name big" fill="#e9b400">SCOOT</text><text x="90" y="92" class="name small">Scoot</text></g>
-    <g transform="translate(315,155)"><rect class="card" width="180" height="110" rx="18"/><text x="90" y="62" class="name big" fill="#e4002b">AirAsia</text><text x="90" y="92" class="name small">AirAsia</text></g>
-    <g transform="translate(515,155)"><rect class="card" width="180" height="110" rx="18"/><text x="90" y="58" class="name medium" fill="#1261a0">Myanmar</text><text x="90" y="78" class="name medium" fill="#1261a0">Airways</text><text x="90" y="98" class="name small">Myanmar Airways</text></g>
-    <g transform="translate(715,155)"><rect class="card" width="180" height="110" rx="18"/><text x="90" y="62" class="name medium" fill="#cf2027">Biman</text><text x="90" y="92" class="name small">Biman Bangladesh</text></g>
-    <g transform="translate(915,155)"><rect class="card" width="180" height="110" rx="18"/><text x="90" y="62" class="name medium" fill="#f5a800">Singapore</text><text x="90" y="92" class="name small">Singapore Airlines</text></g>
+    <g transform="translate(20,20)"><rect class="card" width="220" height="170" rx="22"/><text x="110" y="88" class="name big" fill="#e31b23">Lion Air</text><text x="110" y="125" class="name small">Lion Air</text></g>
+    <g transform="translate(260,20)"><rect class="card" width="220" height="170" rx="22"/><circle cx="110" cy="75" r="40" fill="#5b2a86"/><text x="110" y="84" class="name medium" fill="#fff">THAI</text><text x="110" y="125" class="name small">Thai Airways</text></g>
+    <g transform="translate(500,20)"><rect class="card" width="220" height="170" rx="22"/><text x="110" y="82" class="name medium" fill="#c8102e">US-BANGLA</text><text x="110" y="125" class="name small">US-Bangla Airlines</text></g>
+    <g transform="translate(740,20)"><rect class="card" width="220" height="170" rx="22"/><text x="110" y="88" class="name big" fill="#193c9e">IndiGo</text><text x="110" y="125" class="name small">IndiGo</text></g>
+    <g transform="translate(20,215)"><rect class="card" width="220" height="170" rx="22"/><text x="110" y="88" class="name big" fill="#e31b23">Batik Air</text><text x="110" y="125" class="name small">Batik Air</text></g>
+    <g transform="translate(260,215)"><rect class="card" width="220" height="170" rx="22"/><text x="110" y="88" class="name medium" fill="#143d8d">Malaysia</text><text x="110" y="125" class="name small">Malaysia Airlines</text></g>
+    <g transform="translate(500,215)"><rect class="card" width="220" height="170" rx="22"/><text x="110" y="88" class="name big" fill="#e9b400">SCOOT</text><text x="110" y="125" class="name small">Scoot</text></g>
+    <g transform="translate(740,215)"><rect class="card" width="220" height="170" rx="22"/><text x="110" y="88" class="name big" fill="#e4002b">AirAsia</text><text x="110" y="125" class="name small">AirAsia</text></g>
+    <g transform="translate(20,410)"><rect class="card" width="220" height="170" rx="22"/><text x="110" y="78" class="name medium" fill="#1261a0">Myanmar</text><text x="110" y="108" class="name medium" fill="#1261a0">Airways</text><text x="110" y="145" class="name small">Myanmar Airways</text></g>
+    <g transform="translate(260,410)"><rect class="card" width="220" height="170" rx="22"/><text x="110" y="88" class="name medium" fill="#cf2027">Biman</text><text x="110" y="125" class="name small">Biman Bangladesh</text></g>
+    <g transform="translate(500,410)"><rect class="card" width="220" height="170" rx="22"/><text x="110" y="88" class="name medium" fill="#f5a800">Singapore</text><text x="110" y="125" class="name small">Singapore Airlines</text></g>
+    <g transform="translate(740,410)"><rect class="card" width="220" height="170" rx="22"/><text x="110" y="88" class="name medium" fill="#2563eb">Malaysia</text><text x="110" y="125" class="name small">Air Travel Partners</text></g>
   </g>
 </svg>
