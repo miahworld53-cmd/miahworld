@@ -16,8 +16,8 @@ const tours = [
   ["Mountain Tour", "Genting Highlands", "Cable car, attractions and scenic mountain views.", "Full Day", "https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=1000&q=80"],
   ["Heritage Tour", "Malacca", "Jonker Street, A Famosa, Dutch Square and heritage sites.", "Full Day", "https://images.unsplash.com/photo-1602052577122-f73b9710adba?auto=format&fit=crop&w=1000&q=80"],
   ["Island Tour", "Pangkor Island", "Beautiful beaches, island views and a peaceful tropical escape.", "Full Day / Multi-Day", "https://images.unsplash.com/photo-1510414842594-a61c69b5ae57?auto=format&fit=crop&w=1000&q=80"],
-  ["Highland Tour", "Penang Hill", "Funicular railway, panoramic views and cool mountain weather.", "Full Day", "https://images.unsplash.com/photo-1513415564515-763d91423bdd?auto=format&fit=crop&w=1000&q=80"],
-  ["City Tour", "Putrajaya", "Putra Mosque, Putrajaya Lake and impressive government buildings.", "Half Day / Full Day", "https://images.unsplash.com/photo-1508009603885-50cf7c579365?auto=format&fit=crop&w=1000&q=80"],
+  ["Highland Tour", "Penang Hill", "Funicular railway, panoramic views and cool mountain weather.", "Full Day", "https://storage.googleapis.com/accesstravel-media/attractions/13003/photos/13003_5230946.jpg"],
+  ["City Tour", "Putrajaya", "Putra Mosque, Putrajaya Lake and impressive government buildings.", "Half Day / Full Day", "https://ak-d.tripcdn.com/images/0102w12000mqoquz48AF6.jpg"],
 ];
 
 const visas = [
