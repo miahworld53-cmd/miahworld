@@ -9,23 +9,42 @@
   --font-mono: var(--font-geist-mono);
 }
 
+html { scroll-behavior:smooth; }
 body { background:var(--background); color:var(--foreground); font-family:Arial,Helvetica,sans-serif; }
 
-/* Clean flight-focused hero: keep the KLIA + Malaysia Airlines image from page.tsx */
-#home { position:relative; overflow:hidden; min-height:620px; }
-#home > div:first-child { position:absolute !important; inset:0; z-index:0 !important; min-height:100% !important; display:block !important; background-size:cover !important; background-position:center 42% !important; }
-#home > div:nth-child(2) { position:absolute !important; inset:0; z-index:1 !important; min-height:100% !important; display:block !important; background:linear-gradient(90deg,rgba(3,24,75,.58) 0%,rgba(7,43,145,.24) 50%,rgba(0,120,150,.08) 100%); }
-#home > div:nth-child(3) { position:relative !important; z-index:2 !important; min-height:620px; display:flex; flex-direction:column; justify-content:center; }
+/* Premium travel-agency hero */
+#home { position:relative; overflow:hidden; min-height:650px; }
+#home > div:first-child {
+  position:absolute !important; inset:0; z-index:0 !important; min-height:100% !important; display:block !important;
+  background-image:url("https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/blt5a25820cc0f375ea/67ec33b54c457decbde209c9/KLIA-airport-in-Malaysia-HU_Art-shutterstock.jpg") !important;
+  background-size:cover !important; background-position:center 52% !important; transform:scale(1.02);
+  animation:heroZoom 16s ease-in-out infinite alternate;
+}
+#home > div:nth-child(2) {
+  position:absolute !important; inset:0; z-index:1 !important; min-height:100% !important; display:block !important;
+  background:linear-gradient(90deg,rgba(2,16,54,.86) 0%,rgba(4,35,105,.62) 48%,rgba(0,90,125,.20) 100%);
+}
+#home > div:nth-child(3) { position:relative !important; z-index:2 !important; min-height:650px; display:flex; flex-direction:column; justify-content:center; }
+#home h1 { text-shadow:0 5px 28px rgba(0,0,0,.28); letter-spacing:-.035em; }
+#home .max-w-3xl > p:first-child { display:inline-flex; align-items:center; gap:10px; padding:8px 14px; border:1px solid rgba(255,255,255,.25); border-radius:999px; background:rgba(255,255,255,.10); backdrop-filter:blur(8px); }
+#home .max-w-3xl > p:first-child::before { content:"✦"; color:#7dd3fc; }
+#home a { transition:transform .2s ease,box-shadow .2s ease,background .2s ease; }
+#home a:hover { transform:translateY(-3px); box-shadow:0 14px 32px rgba(0,0,0,.22); }
+@keyframes heroZoom { from { transform:scale(1.02); } to { transform:scale(1.07); } }
 
 /* Header polish */
-header { backdrop-filter:blur(10px); }
-header nav a { transition:color .2s ease; }
+header { backdrop-filter:blur(12px); border-bottom:1px solid rgba(148,163,184,.12); }
+header nav a { transition:color .2s ease,transform .2s ease; }
+header nav a:hover { color:#2563eb; transform:translateY(-1px); }
 header > div > a:last-child { box-shadow:0 8px 22px rgba(37,99,235,.18); transition:transform .2s ease,box-shadow .2s ease; }
 header > div > a:last-child:hover { transform:translateY(-1px); box-shadow:0 12px 28px rgba(37,99,235,.28); }
 
+/* Section headings */
+section h2 { letter-spacing:-.03em; }
+
 /* Professional service cards */
 #services .grid > div { position:relative; overflow:hidden; padding:0 !important; background:#fff !important; border:1px solid rgba(148,163,184,.16); box-shadow:0 12px 30px rgba(15,23,42,.08); transition:transform .22s ease,box-shadow .22s ease; }
-#services .grid > div:hover { transform:translateY(-5px); box-shadow:0 18px 40px rgba(15,23,42,.14); }
+#services .grid > div:hover { transform:translateY(-6px); box-shadow:0 20px 44px rgba(15,23,42,.14); }
 #services .grid > div::before { content:""; display:block; width:100%; height:170px; background-position:center; background-size:cover; background-repeat:no-repeat; }
 #services .grid > div:nth-child(1)::before { background-image:linear-gradient(180deg,rgba(0,48,120,.04),rgba(0,48,120,.38)),url("https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=1200&q=85"); }
 #services .grid > div:nth-child(2)::before { background-image:linear-gradient(180deg,rgba(0,48,120,.04),rgba(0,48,120,.38)),url("https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&w=1200&q=85"); }
@@ -35,23 +54,25 @@ header > div > a:last-child:hover { transform:translateY(-1px); box-shadow:0 12p
 #services .grid > div h3 { margin-top:22px; }
 #services .grid > div p { margin-bottom:24px; }
 
+/* Transport cards */
+#transport .grid > div { transition:transform .25s ease,box-shadow .25s ease,border-color .25s ease; }
+#transport .grid > div:hover { transform:translateY(-6px); box-shadow:0 22px 48px rgba(0,0,0,.28); border-color:rgba(96,165,250,.45); }
+#transport img { transition:transform .45s ease; }
+#transport .grid > div:hover img { transform:scale(1.05); }
+
 /* Tour cards */
 #tours .grid > div { overflow:hidden; border:1px solid rgba(148,163,184,.16); box-shadow:0 12px 30px rgba(15,23,42,.08); transition:transform .22s ease,box-shadow .22s ease; }
 #tours .grid > div:hover { transform:translateY(-5px); box-shadow:0 20px 45px rgba(15,23,42,.15); }
-#tours .grid > div::before { content:""; display:block; width:100%; height:190px; background-position:center; background-size:cover; background-repeat:no-repeat; }
-#tours .grid > div:nth-child(1)::before { background-image:linear-gradient(180deg,rgba(7,43,145,.05),rgba(7,43,145,.35)),url("https://images.unsplash.com/photo-1508062878650-88b52897f298?auto=format&fit=crop&w=1200&q=85"); }
-#tours .grid > div:nth-child(2)::before { background-image:linear-gradient(180deg,rgba(0,80,50,.03),rgba(0,80,50,.30)),url("https://images.pexels.com/photos/22616236/pexels-photo-22616236.jpeg?auto=compress&cs=tinysrgb&w=1400"); }
-#tours .grid > div:nth-child(3)::before { background-image:linear-gradient(180deg,rgba(0,80,140,.05),rgba(0,80,140,.35)),url("https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&w=1200&q=85"); }
-#tours .grid > div:nth-child(4)::before { background-image:linear-gradient(180deg,rgba(70,0,100,.05),rgba(70,0,100,.35)),url("https://images.unsplash.com/photo-1596422846543-75c6fc197f07?auto=format&fit=crop&w=1200&q=85"); }
-#tours .grid > div:nth-child(5)::before { background-image:linear-gradient(180deg,rgba(120,30,0,.03),rgba(120,30,0,.35)),url("https://commons.wikimedia.org/wiki/Special:Redirect/file/Dutch_Square_Malacca.JPG"); }
-#tours .grid > div:nth-child(6)::before { background-image:linear-gradient(180deg,rgba(0,100,110,.05),rgba(0,100,110,.35)),url("https://images.unsplash.com/photo-1583417319070-4a69db38a482?auto=format&fit=crop&w=1200&q=85"); }
-#tours .grid > div > div:first-of-type { border-radius:0; }
+#tours .grid > div > img { transition:transform .45s ease; }
+#tours .grid > div:hover > img { transform:scale(1.05); }
+#tours .grid > div > div:last-child { min-height:205px; }
 
 /* Premium visa cards */
 #visa { scroll-margin-top:80px; }
 #visa img { transition:transform .35s ease; }
-#visa .group:hover img { transform:scale(1.04); }
-#visa .group { box-shadow:0 12px 34px rgba(15,23,42,.06); }
+#visa > div > div > div { transition:transform .22s ease,box-shadow .22s ease; }
+#visa > div > div > div:hover { transform:translateY(-5px); box-shadow:0 20px 42px rgba(15,23,42,.12); }
+#visa > div > div > div:hover img { transform:scale(1.05); }
 
 /* Premium company-branded flight booking section */
 #flights { position:relative; overflow:hidden; background:linear-gradient(180deg,#f8fbff 0%,#ffffff 58%,#f0fbff 100%) !important; }
@@ -70,9 +91,26 @@ header > div > a:last-child:hover { transform:translateY(-1px); box-shadow:0 12p
 #flights > div > div:nth-child(3) > div:hover { transform:translateY(-4px); box-shadow:0 16px 34px rgba(15,23,42,.10); }
 #flights > div > div:nth-child(3) > div::after { content:"Book with MIAH WORLD"; display:block; margin-top:14px; color:#2563eb; font-size:12px; font-weight:800; letter-spacing:.04em; }
 
+/* Stats strip */
+main > section.bg-white.px-6.py-16 > div > div { position:relative; overflow:hidden; border:1px solid rgba(37,99,235,.10); box-shadow:0 12px 28px rgba(15,23,42,.06); transition:transform .2s ease,box-shadow .2s ease; }
+main > section.bg-white.px-6.py-16 > div > div:hover { transform:translateY(-4px); box-shadow:0 18px 38px rgba(15,23,42,.10); }
+
+/* CTA */
+section.bg-blue-600 { position:relative; overflow:hidden; }
+section.bg-blue-600::after { content:"✈"; position:absolute; right:5%; bottom:-35px; font-size:180px; opacity:.08; transform:rotate(-15deg); pointer-events:none; }
+
 /* Contact/footer readability */
-#contact a { transition:transform .2s ease,box-shadow .2s ease; }
-#contact a:hover { transform:translateY(-2px); }
+#contact { border-top:1px solid rgba(255,255,255,.06); }
+#contact a { transition:transform .2s ease,box-shadow .2s ease,opacity .2s ease; }
+#contact a:hover { transform:translateY(-2px); opacity:.9; }
+
+/* Accessibility / performance */
+button,a { -webkit-tap-highlight-color:transparent; }
+@media (prefers-reduced-motion:reduce) {
+  html { scroll-behavior:auto; }
+  #home > div:first-child { animation:none; }
+  *,*::before,*::after { transition:none !important; }
+}
 
 @media (max-width:768px) {
   #home,#home > div:nth-child(3) { min-height:620px; }
@@ -81,7 +119,7 @@ header > div > a:last-child:hover { transform:translateY(-1px); box-shadow:0 12p
   #home p { max-width:100%; }
   #services .grid > div::before { height:155px; }
   #services .grid > div h3,#services .grid > div p { margin-left:20px; margin-right:20px; }
-  #tours .grid > div::before { height:180px; }
+  #tours .grid > div > div:last-child { min-height:0; }
   #flights::before { font-size:10px; letter-spacing:.08em; padding:9px 14px; }
   #flights > div > div:nth-child(2)::before { font-size:11px; text-align:center; }
   #flights > div > div:nth-child(3)::before { height:250px; margin:4px 0 22px; border-radius:20px; background-size:contain; background-position:center; }
