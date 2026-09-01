@@ -30,6 +30,7 @@ header nav a { transition:color .2s ease,transform .2s ease; }
 header nav a:hover { color:#2563eb; transform:translateY(-1px); }
 header > div > a:last-child { box-shadow:0 8px 22px rgba(37,99,235,.18); transition:transform .2s ease,box-shadow .2s ease; }
 header > div > a:last-child:hover { transform:translateY(-1px); box-shadow:0 12px 28px rgba(37,99,235,.28); }
+
 section h2 { letter-spacing:-.03em; }
 
 /* Professional service cards */
@@ -51,16 +52,19 @@ section h2 { letter-spacing:-.03em; }
 #transport .grid > div:hover img { transform:scale(1.05); }
 
 /* Tour cards */
+#tours .grid { align-items:stretch; }
 #tours .grid > div { overflow:hidden; border:1px solid rgba(148,163,184,.16); box-shadow:0 12px 30px rgba(15,23,42,.08); transition:transform .22s ease,box-shadow .22s ease; }
 #tours .grid > div:hover { transform:translateY(-5px); box-shadow:0 20px 45px rgba(15,23,42,.15); }
 #tours .grid > div > img { transition:transform .45s ease; }
 #tours .grid > div:hover > img { transform:scale(1.05); }
 #tours .grid > div > div:last-child { min-height:205px; }
-#tours .grid > div:nth-child(7) > img { visibility:hidden; }
-#tours .grid > div:nth-child(7)::before { content:""; display:block; width:100%; height:176px; background:url('/penang-hill-live.svg') center/cover no-repeat; }
 
-/* New Terengganu package banner using the supplied live Perhentian Beach photo */
-#tours .grid::after { content:"TERENGGANU TOUR PACKAGE\A Perhentian Beach • Island Escape\A Private • Family • Group Tour   |   Full Day / 2 Days 1 Night"; white-space:pre; grid-column:1 / -1; display:flex; align-items:flex-end; padding:34px; min-height:310px; border-radius:30px; color:#fff; font-size:clamp(18px,2.2vw,28px); font-weight:800; line-height:1.55; letter-spacing:-.02em; text-shadow:0 3px 16px rgba(0,0,0,.45); background:linear-gradient(90deg,rgba(2,36,72,.78),rgba(2,119,160,.20)),url('/terengganu-tour-live.svg') center/cover no-repeat; box-shadow:0 18px 45px rgba(15,23,42,.16); border:1px solid rgba(37,99,235,.16); }
+/* Remove the broken Terengganu SVG override that was stretching a tour card. */
+#tours .grid > div:nth-child(7) > img { visibility:visible !important; }
+#tours .grid > div:nth-child(7)::before { content:none !important; display:none !important; }
+
+/* Terengganu package visual card */
+#tours .grid::after { content:"TERENGGANU TOUR PACKAGE\\A Perhentian Beach – Island Escape\\A\\A Private • Family • Group Tour\\A Full Day / 2 Days 1 Night\\A\\A ★ Beach • Island • Nature • Scenic Views\\A\\A ENQUIRE NOW →"; white-space:pre-wrap; display:flex; align-items:flex-end; min-height:430px; padding:28px; border-radius:24px; color:#fff; font-size:18px; font-weight:800; line-height:1.55; background:linear-gradient(180deg,rgba(2,35,70,.02) 15%,rgba(2,35,70,.88) 100%),url("https://commons.wikimedia.org/wiki/Special:Redirect/file/Perhentian%20Islands,%20Malaysia,%20Beach.jpg") center/cover no-repeat; box-shadow:0 12px 30px rgba(15,23,42,.10); border:1px solid rgba(148,163,184,.16); text-shadow:0 2px 12px rgba(0,0,0,.55); }
 
 /* Premium visa cards */
 #visa { scroll-margin-top:80px; }
@@ -89,11 +93,27 @@ section h2 { letter-spacing:-.03em; }
 /* Stats strip */
 main > section.bg-white.px-6.py-16 > div > div { position:relative; overflow:hidden; border:1px solid rgba(37,99,235,.10); box-shadow:0 12px 28px rgba(15,23,42,.06); transition:transform .2s ease,box-shadow .2s ease; }
 main > section.bg-white.px-6.py-16 > div > div:hover { transform:translateY(-4px); box-shadow:0 18px 38px rgba(15,23,42,.10); }
+
 section.bg-blue-600 { position:relative; overflow:hidden; }
 section.bg-blue-600::after { content:"✈"; position:absolute; right:5%; bottom:-35px; font-size:180px; opacity:.08; transform:rotate(-15deg); pointer-events:none; }
+
 #contact { border-top:1px solid rgba(255,255,255,.06); }
 #contact a { transition:transform .2s ease,box-shadow .2s ease,opacity .2s ease; }
 #contact a:hover { transform:translateY(-2px); opacity:.9; }
+
 button,a { -webkit-tap-highlight-color:transparent; }
 @media (prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } #home > div:first-child { animation:none; } *,*::before,*::after { transition:none !important; } }
-@media (max-width:768px) { #home,#home > div:nth-child(3) { min-height:620px; } #home > div:first-child { background-position:center center !important; } #home h1 { font-size:clamp(2.6rem,11vw,4rem); line-height:1.02; } #home p { max-width:100%; } #services .grid > div::before { height:155px; } #services .grid > div h3,#services .grid > div p { margin-left:20px; margin-right:20px; } #tours .grid > div > div:last-child { min-height:0; } #tours .grid::after { min-height:250px; padding:24px; font-size:17px; } #flights::before { font-size:10px; letter-spacing:.08em; padding:9px 14px; } #flights > div > div:nth-child(2)::before { font-size:11px; text-align:center; } #flights > div > div:nth-child(3)::before { height:250px; margin:4px 0 22px; border-radius:20px; background-size:contain; background-position:center; } }
+
+@media (max-width:768px) {
+  #home,#home > div:nth-child(3) { min-height:620px; }
+  #home > div:first-child { background-position:center center !important; }
+  #home h1 { font-size:clamp(2.6rem,11vw,4rem); line-height:1.02; }
+  #home p { max-width:100%; }
+  #services .grid > div::before { height:155px; }
+  #services .grid > div h3,#services .grid > div p { margin-left:20px; margin-right:20px; }
+  #tours .grid > div > div:last-child { min-height:0; }
+  #tours .grid::after { min-height:360px; font-size:16px; padding:22px; }
+  #flights::before { font-size:10px; letter-spacing:.08em; padding:9px 14px; }
+  #flights > div > div:nth-child(2)::before { font-size:11px; text-align:center; }
+  #flights > div > div:nth-child(3)::before { height:250px; margin:4px 0 22px; border-radius:20px; background-size:contain; background-position:center; }
+}
