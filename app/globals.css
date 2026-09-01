@@ -16,16 +16,18 @@ body { background:var(--background); color:var(--foreground); font-family:Arial,
 #home { position:relative; overflow:hidden; min-height:650px; }
 #home > div:first-child {
   position:absolute !important; inset:0; z-index:0 !important; min-height:100% !important; display:block !important;
-  background-image:url("https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/blt5a25820cc0f375ea/67ec33b54c457decbde209c9/KLIA-airport-in-Malaysia-HU_Art-shutterstock.jpg") !important;
-  background-size:cover !important; background-position:center 52% !important; transform:scale(1.02);
+  background-image:url("https://images.unsplash.com/photo-1508057198894-247b23fe5ade?auto=format&fit=crop&w=2400&q=88") !important;
+  background-size:cover !important; background-position:center 46% !important; transform:scale(1.02);
   animation:heroZoom 16s ease-in-out infinite alternate;
 }
 #home > div:nth-child(2) {
   position:absolute !important; inset:0; z-index:1 !important; min-height:100% !important; display:block !important;
-  background:linear-gradient(90deg,rgba(2,16,54,.86) 0%,rgba(4,35,105,.62) 48%,rgba(0,90,125,.20) 100%);
+  background:
+    linear-gradient(90deg,rgba(3,16,52,.88) 0%,rgba(5,35,92,.66) 42%,rgba(0,20,48,.30) 72%,rgba(0,10,25,.20) 100%),
+    linear-gradient(180deg,rgba(4,19,52,.18) 0%,rgba(3,12,32,.52) 100%);
 }
 #home > div:nth-child(3) { position:relative !important; z-index:2 !important; min-height:650px; display:flex; flex-direction:column; justify-content:center; }
-#home h1 { text-shadow:0 5px 28px rgba(0,0,0,.28); letter-spacing:-.035em; }
+#home h1 { text-shadow:0 5px 28px rgba(0,0,0,.32); letter-spacing:-.035em; }
 #home .max-w-3xl > p:first-child { display:inline-flex; align-items:center; gap:10px; padding:8px 14px; border:1px solid rgba(255,255,255,.25); border-radius:999px; background:rgba(255,255,255,.10); backdrop-filter:blur(8px); }
 #home .max-w-3xl > p:first-child::before { content:"✦"; color:#7dd3fc; }
 #home a { transition:transform .2s ease,box-shadow .2s ease,background .2s ease; }
