@@ -59,12 +59,33 @@ section h2 { letter-spacing:-.03em; }
 #tours .grid > div:hover > img { transform:scale(1.05); }
 #tours .grid > div > div:last-child { min-height:205px; }
 
-/* Remove the broken Terengganu SVG override that was stretching a tour card. */
+/* Keep the original Penang Hill tour image visible. */
 #tours .grid > div:nth-child(7) > img { visibility:visible !important; }
 #tours .grid > div:nth-child(7)::before { content:none !important; display:none !important; }
 
-/* Terengganu package visual card */
-#tours .grid::after { content:"TERENGGANU TOUR PACKAGE\\A Perhentian Beach – Island Escape\\A\\A Private • Family • Group Tour\\A Full Day / 2 Days 1 Night\\A\\A ★ Beach • Island • Nature • Scenic Views\\A\\A ENQUIRE NOW →"; white-space:pre-wrap; display:flex; align-items:flex-end; min-height:430px; padding:28px; border-radius:24px; color:#fff; font-size:18px; font-weight:800; line-height:1.55; background:linear-gradient(180deg,rgba(2,35,70,.02) 15%,rgba(2,35,70,.88) 100%),url("https://commons.wikimedia.org/wiki/Special:Redirect/file/Perhentian%20Islands,%20Malaysia,%20Beach.jpg") center/cover no-repeat; box-shadow:0 12px 30px rgba(15,23,42,.10); border:1px solid rgba(148,163,184,.16); text-shadow:0 2px 12px rgba(0,0,0,.55); }
+/* Terengganu featured tour package */
+#tours .grid::after {
+  content:"TERENGGANU TOUR PACKAGE\A Perhentian Beach – Island Escape\A\A Private • Family • Group Tour\A Full Day / 2 Days 1 Night\A\A ★ Beach • Island • Nature • Scenic Views\A\A ENQUIRE NOW →";
+  white-space:pre-wrap;
+  grid-column:1 / -1;
+  min-height:360px;
+  width:100%;
+  box-sizing:border-box;
+  display:flex;
+  flex-direction:column;
+  justify-content:flex-end;
+  align-items:flex-start;
+  padding:36px;
+  border-radius:24px;
+  color:#fff;
+  font-size:20px;
+  font-weight:800;
+  line-height:1.55;
+  background:linear-gradient(180deg,rgba(2,35,70,.04) 5%,rgba(2,35,70,.90) 100%),url("https://commons.wikimedia.org/wiki/Special:Redirect/file/Perhentian%20Islands,%20Malaysia,%20Beach.jpg") center/cover no-repeat;
+  box-shadow:0 16px 38px rgba(15,23,42,.12);
+  border:1px solid rgba(148,163,184,.16);
+  text-shadow:0 2px 12px rgba(0,0,0,.65);
+}
 
 /* Premium visa cards */
 #visa { scroll-margin-top:80px; }
@@ -112,7 +133,7 @@ button,a { -webkit-tap-highlight-color:transparent; }
   #services .grid > div::before { height:155px; }
   #services .grid > div h3,#services .grid > div p { margin-left:20px; margin-right:20px; }
   #tours .grid > div > div:last-child { min-height:0; }
-  #tours .grid::after { min-height:360px; font-size:16px; padding:22px; }
+  #tours .grid::after { min-height:320px; font-size:16px; padding:24px; }
   #flights::before { font-size:10px; letter-spacing:.08em; padding:9px 14px; }
   #flights > div > div:nth-child(2)::before { font-size:11px; text-align:center; }
   #flights > div > div:nth-child(3)::before { height:250px; margin:4px 0 22px; border-radius:20px; background-size:contain; background-position:center; }
