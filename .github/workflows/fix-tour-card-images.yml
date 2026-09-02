@@ -18,17 +18,18 @@ jobs:
         shell: python
         run: |
           from pathlib import Path
+          import re
           path = Path('app/page.tsx')
           text = path.read_text(encoding='utf-8')
 
           old_penang = 'https://images.unsplash.com/photo-1513415564515-763d91423bdd?auto=format&fit=crop&w=1000&q=80'
           new_penang = 'https://storage.googleapis.com/accesstravel-media/attractions/13003/photos/13003_5230946.jpg'
-
-          old_tour = '["City Tour", "Putrajaya", "Putra Mosque, Putrajaya Lake and impressive government buildings.", "Half Day / Full Day", "https://ak-d.tripcdn.com/images/0102w12000mqoquz48AF6.jpg"]'
-          new_tour = '["Island Tour", "Terengganu – Perhentian Beach", "Perhentian Beach, island escape, beautiful beaches, nature and scenic views. Private, family and group tour options available.", "Full Day / 2 Days 1 Night", "/terengganu-tour-live.svg"]'
-
           text = text.replace(old_penang, new_penang)
-          text = text.replace(old_tour, new_tour)
+
+          pattern = r'\["City Tour",\s*"Putrajaya",\s*"[^"]*",\s*"Half Day / Full Day",\s*"[^"]*"\]'
+          replacement = '["Island Tour", "Terengganu – Perhentian Beach", "Perhentian Beach, island escape, beautiful beaches, nature and scenic views. Private, family and group tour options available.", "Full Day / 2 Days 1 Night", "/terengganu-tour-live.svg"]'
+          text, count = re.subn(pattern, replacement, text, count=1)
+          print(f'Terengganu replacement count: {count}')
           path.write_text(text, encoding='utf-8')
 
       - name: Commit website update
