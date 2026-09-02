@@ -38,34 +38,6 @@ header > div > a:last-child { box-shadow:0 8px 22px rgba(37,99,235,.18); }
 #tours .grid > div:nth-child(7) > img { visibility:visible!important; }
 #tours .grid > div:nth-child(7)::before { content:none!important; display:none!important; }
 
-/* Terengganu: the 9th tour card, same dimensions and position as the other tours. */
-#tours .grid::after {
-  content:"TERENGGANU TOUR PACKAGE\A Perhentian Beach – Island Escape\A\A Private • Family • Group Tour\A Full Day / 2 Days 1 Night\A\A ★ Beach • Island • Nature\A\A ENQUIRE NOW →";
-  white-space:pre-wrap;
-  min-height:430px;
-  width:100%;
-  box-sizing:border-box;
-  display:flex;
-  flex-direction:column;
-  justify-content:flex-end;
-  align-items:flex-start;
-  padding:28px;
-  border-radius:24px;
-  color:#fff;
-  font-size:17px;
-  font-weight:800;
-  line-height:1.55;
-  background:linear-gradient(180deg,rgba(2,35,70,.05) 8%,rgba(2,35,70,.92) 100%),url("https://commons.wikimedia.org/wiki/Special:Redirect/file/Perhentian%20Islands,%20Malaysia,%20Beach.jpg") center/cover no-repeat;
-  box-shadow:0 12px 30px rgba(15,23,42,.08);
-  border:1px solid rgba(148,163,184,.16);
-  text-shadow:0 2px 12px rgba(0,0,0,.65);
-}
-
-/* Nine tours fit naturally into three desktop rows. */
-@media (min-width:1024px) {
-  #tours .grid { grid-template-columns:repeat(3,minmax(0,1fr))!important; }
-}
-
 /* Visa */
 #visa { scroll-margin-top:80px; }
 #visa > div > div > div { transition:transform .22s,box-shadow .22s; }
@@ -78,7 +50,10 @@ header > div > a:last-child { box-shadow:0 8px 22px rgba(37,99,235,.18); }
 #flights input:focus,#flights select:focus { border-color:#2563eb!important; box-shadow:0 0 0 4px rgba(37,99,235,.10)!important; }
 #flights button { min-height:56px; box-shadow:0 10px 24px rgba(37,99,235,.22); }
 
+@media (min-width:1024px) {
+  #tours .grid { grid-template-columns:repeat(3,minmax(0,1fr))!important; }
+}
+
 @media (max-width:768px) {
   #home,#home > div:nth-child(3) { min-height:620px; }
-  #tours .grid::after { min-height:320px; font-size:16px; padding:22px; }
 }
