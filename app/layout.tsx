@@ -14,9 +14,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "MIAH WORLD Travels & Tours",
+  title: "MIAH WORLD Travels & Tours | Flight Tickets & Travel Services",
   description:
-    "Flight tickets, visa assistance, hotel booking, private tours and reliable transport services across Malaysia.",
+    "MIAH WORLD Travels & Tours — flight ticketing is our main business. Domestic and international flight booking, visa assistance, hotels, tours and transport services across Malaysia.",
 };
 
 const GA_ID = process.env.NEXT_PUBLIC_GA_ID;
