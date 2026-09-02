@@ -17,7 +17,7 @@ const tours = [
   ["Heritage Tour", "Malacca", "Jonker Street, A Famosa, Dutch Square and heritage sites.", "Full Day", "https://commons.wikimedia.org/wiki/Special:Redirect/file/Dutch_Square_Malacca.JPG"],
   ["Island Tour", "Pangkor Island", "Beautiful beaches, island views and a peaceful tropical escape.", "Full Day / Multi-Day", "https://images.unsplash.com/photo-1583417319070-4a69db38a482?auto=format&fit=crop&w=1200&q=85"],
   ["Highland Tour", "Penang Hill", "Funicular railway, panoramic views and cool mountain weather.", "Full Day", "https://storage.googleapis.com/accesstravel-media/attractions/13003/photos/13003_5230946.jpg"],
-  ["City Tour", "Putrajaya", "Putra Mosque, Putrajaya Lake and impressive government buildings.", "Half Day / Full Day", "https://ak-d.tripcdn.com/images/0102w12000mqoquz48AF6.jpg"],
+  ["Island Tour", "Terengganu – Perhentian Beach", "Perhentian Beach, island escape, beautiful beaches, nature and scenic views. Private, family and group tour options available.", "Full Day / 2 Days 1 Night", "/terengganu-tour-live.svg"],
 ];
 
 const visas = [
