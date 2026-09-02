@@ -4,25 +4,17 @@
 @theme inline { --color-background:var(--background); --color-foreground:var(--foreground); --font-sans:var(--font-geist-sans); --font-mono:var(--font-geist-mono); }
 html { scroll-behavior:smooth; }
 body { background:var(--background); color:var(--foreground); font-family:Arial,Helvetica,sans-serif; }
-
-/* Header */
 header { backdrop-filter:blur(12px); border-bottom:1px solid rgba(148,163,184,.15); }
 header nav a { transition:color .2s ease,transform .2s ease; }
 header nav a:hover { color:#2563eb; transform:translateY(-1px); }
 header > div > a:last-child { box-shadow:0 8px 22px rgba(37,99,235,.18); }
-
-/* Hero */
 #home { position:relative; overflow:hidden; min-height:650px; }
 #home > div:first-child { position:absolute!important; inset:0; z-index:0!important; min-height:100%!important; display:block!important; background-image:url("https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/blt5a25820cc0f375ea/67ec33b54c457decbde209c9/KLIA-airport-in-Malaysia-HU_Art-shutterstock.jpg")!important; background-size:cover!important; background-position:center 52%!important; }
 #home > div:nth-child(2) { position:absolute!important; inset:0; z-index:1!important; background:linear-gradient(90deg,rgba(2,16,54,.86),rgba(4,35,105,.58),rgba(0,90,125,.18)); }
 #home > div:nth-child(3) { position:relative!important; z-index:2!important; min-height:650px; }
 #home h1 { text-shadow:0 5px 28px rgba(0,0,0,.28); }
-
-/* Service cards */
 #services .grid > div { overflow:hidden; border:1px solid rgba(148,163,184,.16); box-shadow:0 12px 30px rgba(15,23,42,.08); transition:transform .22s,box-shadow .22s; }
 #services .grid > div:hover { transform:translateY(-6px); box-shadow:0 20px 44px rgba(15,23,42,.14); }
-
-/* Transport */
 #transport .grid > div { transition:transform .25s,box-shadow .25s; }
 #transport .grid > div:hover { transform:translateY(-6px); box-shadow:0 22px 48px rgba(0,0,0,.28); }
 #transport img,#visa img { transition:transform .4s; }
@@ -38,39 +30,45 @@ header > div > a:last-child { box-shadow:0 8px 22px rgba(37,99,235,.18); }
 #tours .grid > div:nth-child(7) > img { visibility:visible!important; }
 #tours .grid > div:nth-child(7)::before { content:none!important; display:none!important; }
 
-/* Terengganu is the 8th real tour card. Remove the old fake banner and use the existing card/button. */
-#tours .grid::after { content:none!important; display:none!important; }
-#tours .grid > div:nth-child(8) { position:relative; }
-#tours .grid > div:nth-child(8) > img { display:block!important; width:100%; height:220px!important; object-fit:cover; object-position:center; }
-#tours .grid > div:nth-child(8) > div:last-child { min-height:205px; padding:24px!important; }
-#tours .grid > div:nth-child(8) h3 { font-size:0; }
-#tours .grid > div:nth-child(8) h3::after { content:"Terengganu – Perhentian Beach"; font-size:21px; line-height:1.25; font-weight:800; }
-#tours .grid > div:nth-child(8) p { font-size:0; line-height:1.6; }
-#tours .grid > div:nth-child(8) p::after { content:"Perhentian Beach, island escape, beautiful beaches, nature and scenic views.\A\A Full Day / 2 Days 1 Night"; white-space:pre-line; font-size:15px; color:#475569; }
-#tours .grid > div:nth-child(8) button { margin-top:18px!important; border-radius:999px; background:#2563eb; color:#fff; padding:12px 20px; font-weight:800; }
+/* Hide the old CSS-only replacement and render Terengganu as one normal-size featured card. */
+#tours .grid > div:nth-child(8) { display:none!important; }
+#tours .grid::after {
+  content:"TERENGGANU TOUR PACKAGE\A Perhentian Beach – Island Escape\A\A Private • Family • Group Tour\A Full Day / 2 Days 1 Night\A\A ★ Beach • Island • Nature • Scenic Views\A\A ENQUIRE NOW →";
+  white-space:pre-wrap;
+  display:flex;
+  flex-direction:column;
+  justify-content:flex-end;
+  align-items:flex-start;
+  width:auto;
+  min-height:430px;
+  box-sizing:border-box;
+  padding:24px;
+  border-radius:24px;
+  color:#fff;
+  font-size:17px;
+  font-weight:800;
+  line-height:1.5;
+  text-shadow:0 2px 10px rgba(0,0,0,.8);
+  background-image:linear-gradient(180deg,rgba(2,35,70,.04),rgba(2,35,70,.9)),url("https://images.unsplash.com/photo-1548013146-72479768bada?auto=format&fit=crop&w=900&q=80"),url("https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=900&q=80"),url("https://images.unsplash.com/photo-1510414842594-a61c69b5ae57?auto=format&fit=crop&w=900&q=80"),url("https://images.unsplash.com/photo-1473116763249-2faaef81ccda?auto=format&fit=crop&w=900&q=80");
+  background-size:cover,50% 50%,50% 50%,50% 50%,50% 50%;
+  background-position:center,top left,top right,bottom left,bottom right;
+  background-repeat:no-repeat;
+  box-shadow:0 12px 30px rgba(15,23,42,.10);
+  border:1px solid rgba(148,163,184,.16);
+}
 
-/* Visa */
 #visa { scroll-margin-top:80px; }
 #visa > div > div > div { transition:transform .22s,box-shadow .22s; }
 #visa > div > div > div:hover { transform:translateY(-5px); box-shadow:0 20px 42px rgba(15,23,42,.12); }
-
-/* Flights */
 #flights { position:relative; overflow:hidden; background:linear-gradient(180deg,#f8fbff,#fff 58%,#f0fbff)!important; }
 #flights > div > div:nth-child(2) { border:1px solid rgba(37,99,235,.14); border-radius:28px!important; box-shadow:0 24px 70px rgba(15,23,42,.10)!important; }
 #flights input,#flights select { min-height:56px; border-color:#d7e0ec!important; background:#fff!important; }
 #flights input:focus,#flights select:focus { border-color:#2563eb!important; box-shadow:0 0 0 4px rgba(37,99,235,.10)!important; }
 #flights button { min-height:56px; box-shadow:0 10px 24px rgba(37,99,235,.22); }
-
-/* MOTAC licence information */
 #contact::after { content:"MOTAC LICENCE INFORMATION  •  MIAH WORLD TOURS AND TRAVELS (M) SDN. BHD.  •  Licence No. MOTAC L/N/11049  •  Licensed activities shown: Domestic Tour Operating Business + Travel Agency Business  •  Validity shown on document: 04 October 2024"; display:block; max-width:1200px; margin:28px auto 0; padding:16px 20px; border:1px solid rgba(148,163,184,.22); border-radius:18px; background:rgba(255,255,255,.06); color:#cbd5e1; font-size:12px; line-height:1.7; text-align:center; }
-
-@media (min-width:1024px) {
-  #tours .grid { grid-template-columns:repeat(3,minmax(0,1fr))!important; }
-}
-
+@media (min-width:1024px) { #tours .grid { grid-template-columns:repeat(4,minmax(0,1fr))!important; } }
 @media (max-width:768px) {
-  #home,#home > div:nth-child(3) { min-height:620px; }
-  #contact::after { font-size:11px; padding:14px 16px; }
-  #tours .grid > div:nth-child(8) > img { height:200px!important; }
-  #tours .grid > div:nth-child(8) > div:last-child { padding:20px!important; }
+ #home,#home > div:nth-child(3) { min-height:620px; }
+ #contact::after { font-size:11px; padding:14px 16px; }
+ #tours .grid::after { min-height:390px; font-size:15px; padding:20px; }
 }
