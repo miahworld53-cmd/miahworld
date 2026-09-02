@@ -50,10 +50,14 @@ header > div > a:last-child { box-shadow:0 8px 22px rgba(37,99,235,.18); }
 #flights input:focus,#flights select:focus { border-color:#2563eb!important; box-shadow:0 0 0 4px rgba(37,99,235,.10)!important; }
 #flights button { min-height:56px; box-shadow:0 10px 24px rgba(37,99,235,.22); }
 
+/* MOTAC licence information from the uploaded licence document */
+#contact::after { content:"MOTAC LICENCE INFORMATION  •  MIAH WORLD TOURS AND TRAVELS (M) SDN. BHD.  •  Licence No. MOTAC L/N/11049  •  Licensed activities shown: Domestic Tour Operating Business + Travel Agency Business  •  Validity shown on document: 04 October 2024"; display:block; max-width:1200px; margin:28px auto 0; padding:16px 20px; border:1px solid rgba(148,163,184,.22); border-radius:18px; background:rgba(255,255,255,.06); color:#cbd5e1; font-size:12px; line-height:1.7; text-align:center; }
+
 @media (min-width:1024px) {
   #tours .grid { grid-template-columns:repeat(3,minmax(0,1fr))!important; }
 }
 
 @media (max-width:768px) {
   #home,#home > div:nth-child(3) { min-height:620px; }
+  #contact::after { font-size:11px; padding:14px 16px; }
 }
