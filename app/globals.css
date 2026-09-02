@@ -38,6 +38,17 @@ header > div > a:last-child { box-shadow:0 8px 22px rgba(37,99,235,.18); }
 #tours .grid > div:nth-child(7) > img { visibility:visible!important; }
 #tours .grid > div:nth-child(7)::before { content:none!important; display:none!important; }
 
+/* Terengganu is the 8th real tour card. Remove the old fake banner and use the existing card/button. */
+#tours .grid::after { content:none!important; display:none!important; }
+#tours .grid > div:nth-child(8) { position:relative; }
+#tours .grid > div:nth-child(8) > img { display:block!important; width:100%; height:220px!important; object-fit:cover; object-position:center; }
+#tours .grid > div:nth-child(8) > div:last-child { min-height:205px; padding:24px!important; }
+#tours .grid > div:nth-child(8) h3 { font-size:0; }
+#tours .grid > div:nth-child(8) h3::after { content:"Terengganu – Perhentian Beach"; font-size:21px; line-height:1.25; font-weight:800; }
+#tours .grid > div:nth-child(8) p { font-size:0; line-height:1.6; }
+#tours .grid > div:nth-child(8) p::after { content:"Perhentian Beach, island escape, beautiful beaches, nature and scenic views.\A\A Full Day / 2 Days 1 Night"; white-space:pre-line; font-size:15px; color:#475569; }
+#tours .grid > div:nth-child(8) button { margin-top:18px!important; border-radius:999px; background:#2563eb; color:#fff; padding:12px 20px; font-weight:800; }
+
 /* Visa */
 #visa { scroll-margin-top:80px; }
 #visa > div > div > div { transition:transform .22s,box-shadow .22s; }
@@ -50,7 +61,7 @@ header > div > a:last-child { box-shadow:0 8px 22px rgba(37,99,235,.18); }
 #flights input:focus,#flights select:focus { border-color:#2563eb!important; box-shadow:0 0 0 4px rgba(37,99,235,.10)!important; }
 #flights button { min-height:56px; box-shadow:0 10px 24px rgba(37,99,235,.22); }
 
-/* MOTAC licence information from the uploaded licence document */
+/* MOTAC licence information */
 #contact::after { content:"MOTAC LICENCE INFORMATION  •  MIAH WORLD TOURS AND TRAVELS (M) SDN. BHD.  •  Licence No. MOTAC L/N/11049  •  Licensed activities shown: Domestic Tour Operating Business + Travel Agency Business  •  Validity shown on document: 04 October 2024"; display:block; max-width:1200px; margin:28px auto 0; padding:16px 20px; border:1px solid rgba(148,163,184,.22); border-radius:18px; background:rgba(255,255,255,.06); color:#cbd5e1; font-size:12px; line-height:1.7; text-align:center; }
 
 @media (min-width:1024px) {
@@ -60,4 +71,6 @@ header > div > a:last-child { box-shadow:0 8px 22px rgba(37,99,235,.18); }
 @media (max-width:768px) {
   #home,#home > div:nth-child(3) { min-height:620px; }
   #contact::after { font-size:11px; padding:14px 16px; }
+  #tours .grid > div:nth-child(8) > img { height:200px!important; }
+  #tours .grid > div:nth-child(8) > div:last-child { padding:20px!important; }
 }
