@@ -1,0 +1,36 @@
+/* Ticketing-first presentation: flight booking is the primary business. */
+#home h1 { max-width:900px; font-size:clamp(2.8rem,6vw,5.8rem)!important; }
+#home h1::after { content:""; }
+#home .max-w-3xl > p:nth-of-type(2) { max-width:760px; }
+#home .max-w-3xl > p:nth-of-type(2)::before { content:"✈  FLIGHT TICKETING • DOMESTIC & INTERNATIONAL"; display:block; width:max-content; max-width:100%; margin-bottom:16px; padding:8px 14px; border-radius:999px; background:rgba(37,99,235,.92); color:#fff; font-size:12px; font-weight:800; letter-spacing:.08em; }
+
+/* Put the ticket search section immediately after the hero. */
+main { display:flex; flex-direction:column; }
+main > header { order:0; }
+main > #home { order:1; }
+main > #flights { order:2; }
+main > #services { order:3; }
+main > #transport { order:4; }
+main > #tours { order:5; }
+main > #visa { order:6; }
+main > #about { order:7; }
+main > #contact { order:20; }
+main > section:not(#home):not(#flights):not(#services):not(#transport):not(#tours):not(#visa):not(#about):not(#contact) { order:10; }
+
+#flights { border-top:5px solid #2563eb; }
+#flights::before { content:"✈  MIAH WORLD TRAVELS & TOURS  •  FLIGHT TICKETING"; font-size:14px; letter-spacing:.12em; font-weight:900; }
+#flights > div > div:first-child h2 { font-size:clamp(2.3rem,4vw,4rem); }
+#flights > div > div:first-child p:first-child { color:#2563eb; }
+#flights > div > div:nth-child(2) { box-shadow:0 28px 80px rgba(37,99,235,.14)!important; }
+#flights > div > div:nth-child(2)::before { content:"✈  BOOK YOUR FLIGHT WITH MIAH WORLD"; font-size:14px; font-weight:900; }
+#flights button { font-weight:900; }
+
+/* Remove the temporary Terengganu CSS banner; tours should stay secondary to ticketing. */
+#tours .grid::after { display:none!important; content:none!important; }
+#tours .grid > div:nth-child(8) { display:block!important; }
+
+@media (max-width:768px) {
+  #home h1 { font-size:clamp(2.7rem,11vw,4.2rem)!important; }
+  #home .max-w-3xl > p:nth-of-type(2)::before { font-size:10px; }
+  #flights::before { font-size:10px; letter-spacing:.06em; }
+}
