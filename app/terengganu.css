@@ -1,47 +1,24 @@
-/* Terengganu tour package — proper card, not a separate banner. */
-#flights > div > div:nth-child(2)::after { content:none !important; display:none !important; }
-
-/* Nine tour cards = three balanced rows on desktop. */
-#tours .grid {
-  grid-template-columns:repeat(3,minmax(0,1fr)) !important;
-}
-
+/* Terengganu tour package: use the real card already defined in page.tsx. */
 #tours .grid::after {
-  content:"TERENGGANU TOUR PACKAGE\A Perhentian Beach – Island Escape\A\A Private • Family • Group Tour\A Full Day / 2 Days 1 Night\A\A ★ Beach • Island • Nature • Scenic Views\A\A ENQUIRE NOW →";
-  white-space:pre-wrap;
-  display:flex;
-  flex-direction:column;
-  justify-content:flex-end;
-  align-items:flex-start;
-  min-height:430px;
-  box-sizing:border-box;
-  padding:28px;
-  border-radius:24px;
-  color:#fff;
-  font-size:18px;
-  font-weight:800;
-  line-height:1.5;
-  text-shadow:0 2px 12px rgba(0,0,0,.65);
-  background:linear-gradient(180deg,rgba(2,35,70,.05) 0%,rgba(2,35,70,.90) 100%),url('/terengganu-tour-live.svg') center/cover no-repeat;
-  border:1px solid rgba(148,163,184,.16);
-  box-shadow:0 12px 30px rgba(15,23,42,.10);
-  transition:transform .22s ease,box-shadow .22s ease;
+  content:none !important;
+  display:none !important;
 }
 
-#tours .grid::after:hover {
-  transform:translateY(-5px);
-  box-shadow:0 20px 45px rgba(15,23,42,.15);
+/* Keep all tour cards consistent with the existing 4-column layout. */
+@media (min-width:1024px) {
+  #tours .grid { grid-template-columns:repeat(4,minmax(0,1fr)) !important; }
 }
 
-@media (max-width:1024px) {
+@media (max-width:1023px) and (min-width:769px) {
   #tours .grid { grid-template-columns:repeat(2,minmax(0,1fr)) !important; }
 }
 
 @media (max-width:768px) {
   #tours .grid { grid-template-columns:1fr !important; }
-  #tours .grid::after {
-    min-height:360px;
-    padding:24px;
-    font-size:16px;
-  }
+}
+
+/* Real Terengganu card image — supplied live-photo asset. */
+#tours .grid > div:last-child img {
+  object-fit:cover;
+  object-position:center;
 }
