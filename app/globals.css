@@ -66,3 +66,4 @@ header > div > a:last-child { box-shadow:0 8px 22px rgba(37,99,235,.18); }
  #flights > div > div:nth-child(3) { margin-top:30px; }
  #flights > div > div:nth-child(3)::before { height:220px; margin:4px 0 22px; border-radius:20px; }
 }
+/* Fresh deployment marker: corrected Tours layout is in page.tsx. */
