@@ -33,14 +33,41 @@ header > div > a:last-child { box-shadow:0 8px 22px rgba(37,99,235,.18); }
 #visa { scroll-margin-top:80px; }
 #visa > div > div > div { transition:transform .22s,box-shadow .22s; }
 #visa > div > div > div:hover { transform:translateY(-5px); box-shadow:0 20px 42px rgba(15,23,42,.12); }
-#flights { position:relative; overflow:hidden; background:linear-gradient(180deg,#f8fbff,#fff 58%,#f0fbff)!important; }
-#flights > div > div:nth-child(2) { border:1px solid rgba(37,99,235,.14); border-radius:28px!important; box-shadow:0 24px 70px rgba(15,23,42,.10)!important; }
-#flights input,#flights select { min-height:56px; border-color:#d7e0ec!important; background:#fff!important; }
-#flights input:focus,#flights select:focus { border-color:#2563eb!important; box-shadow:0 0 0 4px rgba(37,99,235,.10)!important; }
-#flights button { min-height:56px; box-shadow:0 10px 24px rgba(37,99,235,.22); }
+
+/* Premium flight booking */
+#flights { position:relative; overflow:hidden; background:linear-gradient(180deg,#f4f8ff 0%,#ffffff 48%,#f7fbff 100%)!important; }
+#flights::before { content:none!important; display:none!important; }
+#flights > div { position:relative; }
+#flights > div > div:first-child { margin-bottom:34px; }
+#flights > div > div:first-child p { color:#2563eb; font-weight:800; letter-spacing:.12em; }
+#flights > div > div:first-child h2 { font-size:clamp(2.8rem,5vw,4.2rem); letter-spacing:-.045em; color:#111a31; }
+#flights > div > div:nth-child(2) { position:relative; max-width:1120px!important; padding:34px!important; border:1px solid rgba(37,99,235,.14); border-radius:30px!important; background:rgba(255,255,255,.98)!important; box-shadow:0 28px 80px rgba(15,23,42,.12)!important; }
+#flights > div > div:nth-child(2)::before { content:"✈  BOOK YOUR FLIGHT WITH MIAH WORLD"; display:block; margin:-5px 0 22px; padding:15px 20px; border-radius:15px; background:linear-gradient(100deg,#0b3fa5,#1769df); color:#fff; font-size:12px; font-weight:900; letter-spacing:.12em; text-align:left; box-shadow:0 10px 24px rgba(37,99,235,.18); }
+#flights > div > div:nth-child(2) > div:first-of-type { margin-top:0!important; border-radius:14px!important; background:linear-gradient(100deg,#1451cf,#2f7df2)!important; box-shadow:0 10px 24px rgba(37,99,235,.14); }
+#flights > div > div:nth-child(2) label { display:block; color:#172033; font-size:14px; font-weight:800; }
+#flights > div > div:nth-child(2) label input,#flights > div > div:nth-child(2) label select { margin-top:9px!important; }
+#flights input,#flights select { min-height:58px; border:1px solid #d7e0ec!important; border-radius:13px!important; background:#fff!important; color:#172033!important; box-shadow:inset 0 1px 2px rgba(15,23,42,.03); transition:border-color .2s ease,box-shadow .2s ease,transform .2s ease; }
+#flights input:hover,#flights select:hover { border-color:#b8c7dd!important; }
+#flights input:focus,#flights select:focus { outline:none; border-color:#2563eb!important; box-shadow:0 0 0 4px rgba(37,99,235,.10)!important; transform:translateY(-1px); }
+#flights button { min-height:58px; width:100%; border-radius:15px!important; background:linear-gradient(100deg,#1557e8,#246ff3)!important; box-shadow:0 14px 30px rgba(37,99,235,.22); font-size:15px; font-weight:900; transition:transform .2s ease,box-shadow .2s ease; }
+#flights button:hover { transform:translateY(-2px); box-shadow:0 18px 34px rgba(37,99,235,.30); }
+#flights > div > div:nth-child(3) { position:relative; margin-top:42px; }
+#flights > div > div:nth-child(3)::before { content:""; display:block; width:100%; height:285px; margin:8px 0 28px; border-radius:24px; background:#fff url('/airline-partners.svg') center/contain no-repeat; box-shadow:0 12px 32px rgba(15,23,42,.06); border:1px solid rgba(148,163,184,.14); }
+#flights > div > div:nth-child(3) > div { border:1px solid rgba(148,163,184,.16); box-shadow:0 10px 28px rgba(15,23,42,.06); transition:transform .2s ease,box-shadow .2s ease; }
+#flights > div > div:nth-child(3) > div:hover { transform:translateY(-4px); box-shadow:0 16px 34px rgba(15,23,42,.10); }
+#flights > div > div:nth-child(3) > div::after { content:"Book with MIAH WORLD"; display:block; margin-top:14px; color:#2563eb; font-size:12px; font-weight:800; letter-spacing:.04em; }
+
 #contact::after { content:"MOTAC LICENCE INFORMATION  •  MIAH WORLD TOURS AND TRAVELS (M) SDN. BHD.  •  Licence No. MOTAC L/N/11049  •  Licensed activities shown: Domestic Tour Operating Business + Travel Agency Business  •  Validity shown on document: 04 October 2024"; display:block; max-width:1200px; margin:28px auto 0; padding:16px 20px; border:1px solid rgba(148,163,184,.22); border-radius:18px; background:rgba(255,255,255,.06); color:#cbd5e1; font-size:12px; line-height:1.7; text-align:center; }
 @media (min-width:1024px) { #tours .grid { grid-template-columns:repeat(4,minmax(0,1fr))!important; } }
 @media (max-width:768px) {
  #home,#home > div:nth-child(3) { min-height:620px; }
  #contact::after { font-size:11px; padding:14px 16px; }
+ #flights > div > div:first-child { margin-bottom:24px; }
+ #flights > div > div:first-child h2 { font-size:clamp(2.5rem,11vw,3.5rem); }
+ #flights > div > div:nth-child(2) { padding:20px!important; border-radius:22px!important; }
+ #flights > div > div:nth-child(2)::before { font-size:10px; text-align:center; }
+ #flights > div > div:nth-child(2) > div:first-of-type { padding:13px 14px!important; text-align:center; font-size:11px; }
+ #flights input,#flights select,#flights button { min-height:56px; }
+ #flights > div > div:nth-child(3) { margin-top:30px; }
+ #flights > div > div:nth-child(3)::before { height:250px; margin:4px 0 22px; border-radius:20px; }
 }
