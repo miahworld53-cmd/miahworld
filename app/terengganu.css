@@ -1,24 +1,41 @@
-/* Terengganu tour package: use the real card already defined in page.tsx. */
-#tours .grid::after {
-  content:none !important;
-  display:none !important;
-}
+/* Terengganu tour package — keep every tour card in the normal responsive grid. */
+#tours .grid::after { content:none !important; display:none !important; }
 
-/* Keep all tour cards consistent with the existing 4-column layout. */
 @media (min-width:1024px) {
   #tours .grid { grid-template-columns:repeat(4,minmax(0,1fr)) !important; }
 }
-
 @media (max-width:1023px) and (min-width:769px) {
   #tours .grid { grid-template-columns:repeat(2,minmax(0,1fr)) !important; }
 }
-
 @media (max-width:768px) {
   #tours .grid { grid-template-columns:1fr !important; }
 }
 
-/* Real Terengganu card image — supplied live-photo asset. */
-#tours .grid > div:last-child img {
-  object-fit:cover;
-  object-position:center;
+#tours .grid > div:last-child {
+  grid-column:auto !important;
+  grid-row:auto !important;
+  display:block !important;
+  width:auto !important;
+  min-height:0 !important;
+  border-radius:1.5rem !important;
+  background:#fff !important;
+  box-shadow:0 12px 30px rgba(15,23,42,.08) !important;
+}
+#tours .grid > div:last-child > img {
+  display:block !important;
+  width:100% !important;
+  height:11rem !important;
+  min-height:0 !important;
+  object-fit:cover !important;
+  object-position:center !important;
+}
+#tours .grid > div:last-child > div:first-of-type {
+  display:block !important;
+  padding:1.5rem !important;
+  background:linear-gradient(to right,#1d4ed8,#06b6d4) !important;
+}
+#tours .grid > div:last-child > div:last-child {
+  display:block !important;
+  min-height:205px !important;
+  padding:1.5rem !important;
 }
