@@ -67,3 +67,48 @@ header > div > a:last-child { box-shadow:0 8px 22px rgba(37,99,235,.18); }
  #flights > div > div:nth-child(3)::before { height:220px; margin:4px 0 22px; border-radius:20px; }
 }
 /* Fresh deployment marker: corrected Tours layout is in page.tsx. */
+
+/* TERENGGANU FEATURED TOUR — make the live-photo card a proper full-width feature. */
+@media (min-width:1024px) {
+  #tours .grid > div:last-child {
+    grid-column:1 / -1 !important;
+    display:grid !important;
+    grid-template-columns:minmax(0,1.55fr) minmax(360px,.75fr) !important;
+    grid-template-rows:auto 1fr !important;
+    min-height:430px !important;
+    border-radius:28px !important;
+    background:#fff !important;
+    box-shadow:0 24px 60px rgba(15,23,42,.14) !important;
+  }
+  #tours .grid > div:last-child > img {
+    grid-column:1 !important;
+    grid-row:1 / 3 !important;
+    width:100% !important;
+    height:100% !important;
+    min-height:430px !important;
+    object-fit:cover !important;
+  }
+  #tours .grid > div:last-child > div:first-of-type {
+    grid-column:2 !important;
+    grid-row:1 !important;
+    align-self:stretch !important;
+    padding:30px !important;
+    background:linear-gradient(135deg,#075985,#0284c7,#22d3ee) !important;
+  }
+  #tours .grid > div:last-child > div:last-child {
+    grid-column:2 !important;
+    grid-row:2 !important;
+    min-height:0 !important;
+    display:flex !important;
+    flex-direction:column !important;
+    justify-content:center !important;
+    padding:30px !important;
+  }
+}
+@media (max-width:1023px) {
+  #tours .grid > div:last-child { width:100%; }
+}
+@media (max-width:768px) {
+  #tours .grid > div:last-child > img { height:260px !important; }
+  #tours .grid > div:last-child > div:last-child { min-height:0 !important; }
+}
